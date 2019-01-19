@@ -1,6 +1,8 @@
 # checkdigit
 ![](https://img.shields.io/travis/com/harens/checkdigit.svg?style=for-the-badge) ![https://pypi.org/project/checkdigit/](https://img.shields.io/pypi/v/checkdigit.svg?logoColor=violet&style=for-the-badge) ![https://pypi.org/project/checkdigit/](https://img.shields.io/pypi/format/checkdigit.svg?style=for-the-badge) ![https://pypi.org/project/checkdigit/](https://img.shields.io/pypi/status/checkdigit.svg?style=for-the-badge) ![https://pypi.org/project/checkdigit/](https://img.shields.io/pypi/pyversions/checkdigit.svg?style=for-the-badge)
-__Checking digits with a digit!__
+<br>
+<br>
+*Checking digits with a digit!*
 
 ## Installation
 ```shell
