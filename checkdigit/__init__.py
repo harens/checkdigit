@@ -1,3 +1,5 @@
+# /usr/bin/env python
+
 # This file is part of checkdigit.
 
 # checkdigit is free software: you can redistribute it and/or modify
@@ -11,5 +13,4 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-__version__ = "0.0.1"
 from checkdigit.isbn import *

@@ -1,5 +1,5 @@
 # checkdigit
-Testing testy tests with tests
+Checking digits with a digit!
 
 ## Installation
 ```shell
