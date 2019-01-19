@@ -13,6 +13,7 @@
 
 import sys
 
+sys.path.append('../')  # Go back a directory
 from checkdigit import isbn
 
 number_success = 0
