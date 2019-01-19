@@ -1,8 +1,14 @@
 language: python
+cache: pip
 python:
   - "3.4"
   - "3.5"
   - "3.6"
-  - "3.7"
-cache: pip
+
+matrix:
+  include:
+    - python: 3.7
+      dist: xenial
+      sudo: true
+
 script: cd tests && python -m test_isbn
