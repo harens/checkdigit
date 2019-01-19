@@ -23,12 +23,12 @@ with open("README.md") as f:
 
 setup(
     name="checkdigit",
-    version="0.0.1",
+    version="0.0.2",
     description="Checking digits with a digit!",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="harens",
-    license="GPL v3",
+    license="GPLv3",
     packages=find_packages(exclude=("tests",)),
     author_email="harensdeveloper@gmail.com",
     url="https://harens.github.io",
@@ -39,8 +39,6 @@ setup(
         "Intended Audience :: Information Technology",
         "Intended Audience :: Education",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
