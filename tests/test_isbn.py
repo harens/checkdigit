@@ -30,16 +30,24 @@ test(isbn.isbn10check("0198526636"), True, 'isbn10check')
 
 test(isbn.isbn13calculate("012345678912"), "8", 'isbn13calculate')
 
+test(isbn.isbn13check('0123456789128'), True, 'isbn13check')
+test(isbn.isbn13check('9781861978769'), True, 'isbn13check')
+
 # For ISBN-10
-test(isbn.calculate_missing("15688?111X"), "1", 'calculate_missing (1)')
-test(isbn.calculate_missing("812071988?"), "3", 'calculate_missing (2)')
-test(isbn.calculate_missing("020161586?"), "X", 'calculate_missing (3)')
-test(isbn.calculate_missing("?131103628"), "0", 'calculate_missing (4)')
-test(isbn.calculate_missing("?86046324X"), "1", 'calculate_missing (5)')
-test(isbn.calculate_missing("1?68811306"), "5", 'calculate_missing (6)')
-test(isbn.calculate_missing("951?451570"), "4", 'calculate_missing (7)')
-test(isbn.calculate_missing("0393020?31"), "2", 'calculate_missing (8)')
-test(isbn.calculate_missing("01367440?5"), "9", 'calculate_missing (9)')
+test(isbn.calculate_missing("15688?111X"), "1", 'calculate_missing (10a)')
+test(isbn.calculate_missing("812071988?"), "3", 'calculate_missing (10b)')
+test(isbn.calculate_missing("020161586?"), "X", 'calculate_missing (10c)')
+test(isbn.calculate_missing("?131103628"), "0", 'calculate_missing (10d)')
+test(isbn.calculate_missing("?86046324X"), "1", 'calculate_missing (10e)')
+test(isbn.calculate_missing("1?68811306"), "5", 'calculate_missing (10f)')
+test(isbn.calculate_missing("951?451570"), "4", 'calculate_missing (10g)')
+test(isbn.calculate_missing("0393020?31"), "2", 'calculate_missing (10h)')
+test(isbn.calculate_missing("01367440?5"), "9", 'calculate_missing (10i)')
+
+test(isbn.calculate_missing("978186197876?"), "9", 'calculate_missing (13a)')
+test(isbn.calculate_missing("9781?61978769"), "8", 'calculate_missing (13b)')
+test(isbn.calculate_missing("01234567891?8"), "2", 'calculate_missing (13c)')
+test(isbn.calculate_missing("0?23456789128"), "1", 'calculate_missing (13d)')
 
 finish_time = time.time()
 

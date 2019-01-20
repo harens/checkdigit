@@ -28,11 +28,10 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="harens",
-    license="GPLv3",
     packages=find_packages(exclude=("tests",)),
     author_email="harensdeveloper@gmail.com",
     url="https://harens.github.io",
-    download_url="https://github.com/harens/checkdigit/tarball/0.0.1",
+    download_url="https://github.com/harens/checkdigit/archive/master.zip",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Operating System :: OS Independent",
