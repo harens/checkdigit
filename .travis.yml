@@ -12,6 +12,9 @@ matrix:
 
 script: cd tests && python -m tests
 
+before_deploy:
+  - cd ..
+
 deploy:
   provider: pypi
   user: harens
@@ -20,3 +23,8 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
