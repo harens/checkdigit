@@ -13,7 +13,6 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-
 def isbn10calculate(data):
     total_sum = 0
     multiply_counter = 10
@@ -49,7 +48,7 @@ def isbn13calculate(data):
 
 
 def isbn13check(data):
-    return isbn13calculate(data[:12]) == data[-1]  # Sees if check digit is valid
+    return isbn13calculate(data[:9]) == data[-1]  # Sees if check digit is valid
 
 
 # p = position of ?
@@ -58,11 +57,20 @@ def isbn13check(data):
 
 
 def calculate_missing(data):
-    for poss_digit in range(0, 11):
-        if poss_digit == 10:
-            poss_digit = 'X'
-        if len(data) == 10 and isbn10check(data.replace('?', str(poss_digit))):
-            return str(poss_digit)
-        elif len(data) == 13 and isbn13check(data.replace('?', str(poss_digit))):
-            return str(poss_digit)
-
+    char_pos = 10 - data.index("?")  # What ? is multiplied by
+    total_sum = 0
+    multiply_counter = 10
+    for item in data:
+        if item == "X":
+            total_sum += 10
+        elif item != "?":
+            total_sum += int(item) * multiply_counter
+        multiply_counter -= 1
+    poss_output = 0
+    while True:
+        final_value = ((11 * poss_output) - total_sum) / char_pos
+        if int(final_value) == final_value and final_value >= 0:
+            if final_value == 10:
+                return "X"
+            return str(int(final_value))  # Better to not have .0
+        poss_output += 1

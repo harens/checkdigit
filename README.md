@@ -9,12 +9,6 @@
 pip install checkdigit
 ```
 Or download the project [here](https://github.com/harens/checkdigit/archive/master.zip)
-## Features
-- Add a parity bit to a binary string
-- ISBNs
-    - Validate ISBN-10 and ISBN-13 codes
-    - Calculate a missing check digit
-    - Determine an absent character from the data
 
 ## License
 This project is licensed under the [GNU General Public License v3.0](https://github.com/harens/checkdigit/blob/master/LICENSE)
