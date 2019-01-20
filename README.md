@@ -1,5 +1,9 @@
 # checkdigit
-![](https://img.shields.io/travis/com/harens/checkdigit.svg?style=for-the-badge) ![https://pypi.org/project/checkdigit/](https://img.shields.io/pypi/v/checkdigit.svg?logoColor=violet&style=for-the-badge) ![https://pypi.org/project/checkdigit/](https://img.shields.io/pypi/format/checkdigit.svg?style=for-the-badge) ![https://pypi.org/project/checkdigit/](https://img.shields.io/pypi/status/checkdigit.svg?style=for-the-badge) ![https://pypi.org/project/checkdigit/](https://img.shields.io/pypi/pyversions/checkdigit.svg?style=for-the-badge)
+[![Travis build status](https://img.shields.io/travis/com/harens/checkdigit.svg?style=for-the-badge)](https://travis-ci.com/harens/checkdigit) 
+[![Latest PyPi release version number](https://img.shields.io/pypi/v/checkdigit.svg?logoColor=violet&style=for-the-badge)](https://pypi.org/project/checkdigit/)
+[![PyPi format](https://img.shields.io/pypi/format/checkdigit.svg?style=for-the-badge)](https://pypi.org/project/checkdigit/)
+[![Current state (Alpha/Beta/Stable etc.)](https://img.shields.io/pypi/status/checkdigit.svg?style=for-the-badge)](https://pypi.org/project/checkdigit/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/checkdigit.svg?style=for-the-badge)](https://pypi.org/project/checkdigit/)
 <br>
 <br>
 *Checking digits with a digit!*
