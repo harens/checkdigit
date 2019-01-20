@@ -10,12 +10,13 @@ matrix:
       dist: xenial
       sudo: true
 
-script: cd tests && python -m test_isbn
+script: cd tests && python -m tests
 
 deploy:
   provider: pypi
   user: harens
   password:
     secure: lMYdLZgDpuGcixjwpawXWs16u0jZXmLJ3IcSmTJHpapeFXA++SpE57UrOewk3ISh2HiCtFtUOlpkXlBvEKSb4hkNF1GLB6hfYHJkvHrbpshcGOWcx0B7I4FQmzIBC3IPuv9MleVmxUSJzwJDi3/biNFnDCIiVxYkZXmH+Lq+8gU3VxvwVrTzAVSI+2mOXVqz60yysT7UL8hh91KlNhDpEGgN2K9nVdREWdpdsaKL6yH4GimOS5OrgUvpykI+o+i0i4+3qNZcGvfmVqI3E+m3kr9C+o1Mhe8rA3owKCEsXiAt1j2cl+7yXWDrmd78eDNUFhyHJyaZg719JWutO+Olqs/jtyMtZs50uo4+bSk/wvZjHgyLIfwXZsbAsfiD4s3QSj7ti6mWvCJIfIjNtT+q2AoI65+a29hx0ARWw92S4fIBjuEiSKY1IsXtaRc2QAPRlWSNlGXoG+9q4XMMFwXzWh4hOKPaAqyxXB7MhadEFPypbfcJ1l+spH0r6Ryp2icgc/be2qB7tT7wEATdh7WhLfgeixiiEe9OMVC+1ZBQoF4QNG/FU0M56kXwyRG9ayYdUp+HGWAT1l0ClE3ZUSfaG0T/1YY71HTvDfkny33EOJEeTCKi3e4xmuwjFDfzW3rTihGHel84SytiFpB2AAvoAVT9qNih7Tbpql8Wu7PpnE4=
+  skip_cleanup: true
   on:
     tags: true

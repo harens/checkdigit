@@ -1,3 +1,5 @@
+# /usr/bin/env python
+
 # This file is part of checkdigit.
 
 # checkdigit is free software: you can redistribute it and/or modify
@@ -13,81 +15,33 @@
 
 import sys
 import time
+from config import test
+
+start_time = time.time()
 
 sys.path.append("../")  # Go back a directory
 from checkdigit import isbn
 
-number_success = 0
-number_failed = 0
-total_tests = 0
+test(isbn.isbn10calculate("006196436"), "0", 'isbn10calculate (1)')
+test(isbn.isbn10calculate("190592105"), "5", 'isbn10calculate (2)')
+test(isbn.isbn10calculate("043942089"), "X", 'isbn10calculate (3)')
 
+test(isbn.isbn10check("0198526636"), True, 'isbn10check')
 
-# Test function (Credit to spscah)
-def test(function, value):
-    global total_tests
-    total_tests += 1
-    linenum = str(sys._getframe(1).f_lineno)
-    did_pass = function == value
-    if did_pass:
-        print("✅ Line {0} Succeeded".format(linenum))
-        global number_success
-        number_success += 1
-    else:
-        print("")
-        print("❌ Line {0} failed".format(linenum))
-        print("Program Output:", function)
-        print("Expected Output:", value)
-        global number_failed
-        number_failed += 1
-        print("")
-
-
-start_time = time.time()
-
-test(isbn.evenparity("0110"), "01100")
-test(isbn.evenparity("0"), "00")
-test(isbn.evenparity("01101"), "011011")
-
-test(isbn.isbn10calculate("006196436"), "0")
-test(isbn.isbn10calculate("190592105"), "5")
-test(isbn.isbn10calculate("043942089"), "X")
-
-test(isbn.isbn10check("0198526636"), True)
-
-test(isbn.isbn13calculate("012345678912"), "8")
+test(isbn.isbn13calculate("012345678912"), "8", 'isbn13calculate')
 
 # For ISBN-10
-test(isbn.calculate_missing("15688?111X"), "1")
-test(isbn.calculate_missing("812071988?"), "3")
-test(isbn.calculate_missing("020161586?"), "X")
-test(isbn.calculate_missing("?131103628"), "0")
-test(isbn.calculate_missing("?86046324X"), "1")
-test(isbn.calculate_missing("1?68811306"), "5")
-test(isbn.calculate_missing("951?451570"), "4")
-test(isbn.calculate_missing("0393020?31"), "2")
-test(isbn.calculate_missing("01367440?5"), "9")
+test(isbn.calculate_missing("15688?111X"), "1", 'calculate_missing (1)')
+test(isbn.calculate_missing("812071988?"), "3", 'calculate_missing (2)')
+test(isbn.calculate_missing("020161586?"), "X", 'calculate_missing (3)')
+test(isbn.calculate_missing("?131103628"), "0", 'calculate_missing (4)')
+test(isbn.calculate_missing("?86046324X"), "1", 'calculate_missing (5)')
+test(isbn.calculate_missing("1?68811306"), "5", 'calculate_missing (6)')
+test(isbn.calculate_missing("951?451570"), "4", 'calculate_missing (7)')
+test(isbn.calculate_missing("0393020?31"), "2", 'calculate_missing (8)')
+test(isbn.calculate_missing("01367440?5"), "9", 'calculate_missing (9)')
 
 finish_time = time.time()
-final_time = round(finish_time - start_time, 4)
 
-print("")
-if number_failed == 0:
-    print(
-        "Out of {0} tests, all succeeded in {1} seconds".format(total_tests, final_time)
-    )
-elif number_success == 0:
-    print("Out of {0} tests, all failed in {1} seconds".format(total_tests, final_time))
-    exit(1)
-else:
-    print(
-        "Out of {0} tests, {1} succeeded and {2} failed in {3} seconds".format(
-            total_tests, number_success, number_failed, final_time
-        )
-    )
-    # Success rate rounded to 2 d.p.
-    print(
-        "This gives a success rate of {0}%".format(
-            round((number_success / total_tests) * 100), 2
-        )
-    )
-    exit(1)
+def isbn_time():
+    return finish_time - start_time
