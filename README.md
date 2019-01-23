@@ -8,9 +8,9 @@
 <br>
 *Checking digits with a digit!*
 
-<img src="./art/parity.png" alt="Sample Parity" width="433"/> <img src="./art/upc.png" alt="Sample UPC" width="433"/>
+![Sample Parity](./art/parity.png)  ![Sample UPC](./art/upc.png)
 
-<img src="./art/isbn.png" alt="Sample ISBN" width="433"/> <img src="./art/luhn.png" alt="Sample Luhn" width="433"/>
+![Sample ISBN](./art/isbn.png) ![Sample Luhn](./art/luhn.png)
 
 ## Installation
 ```shell
