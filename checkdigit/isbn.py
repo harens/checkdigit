@@ -32,12 +32,16 @@ def isbn10check(data):
     return isbn10calculate(data[:9]) == data[-1]  # Sees if check digit is valid
 
 
-def isbn13calculate(data):
+def isbn13calculate(data, function_name='isbn'):
+    if function_name == 'isbn':
+        mod_number = 0
+    else:
+        mod_number = 1
     total_sum = 0
     position_counter = 1  # 1 based indexing for data
     for item in data:
         item = int(item)
-        if position_counter % 2 == 0:
+        if position_counter % 2 == mod_number:
             total_sum += item * 3  # Multiplies by 3 if position is even
         else:
             total_sum += item
