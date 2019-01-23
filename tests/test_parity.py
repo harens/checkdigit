@@ -22,18 +22,16 @@ from checkdigit import parity
 
 start_time = time.time()
 
-test(parity.evenparity("0110"), "01100", 'evenparity (1)')
-test(parity.evenparity("0"), "00", 'evenparity (2)')
-test(parity.evenparity("01101"), "011011", 'evenparity (3)')
+test(parity.evenparity("0110"), "01100", "evenparity (1)")
+test(parity.evenparity("0"), "00", "evenparity (2)")
+test(parity.evenparity("01101"), "011011", "evenparity (3)")
 
-test(parity.oddparity("0110"), "01101", 'oddparity (1)')
-test(parity.oddparity("0"), "01", 'oddparity (2)')
-test(parity.oddparity("01101"), "011010", 'oddparity (3)')
+test(parity.oddparity("0110"), "01101", "oddparity (1)")
+test(parity.oddparity("0"), "01", "oddparity (2)")
+test(parity.oddparity("01101"), "011010", "oddparity (3)")
 
 final_time = time.time()
 
 
 def parity_time():
     return final_time - start_time
-
-

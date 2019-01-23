@@ -32,8 +32,8 @@ def isbn10check(data):
     return isbn10calculate(data[:9]) == data[-1]  # Sees if check digit is valid
 
 
-def isbn13calculate(data, function_name='isbn'):
-    if function_name == 'isbn':
+def isbn13calculate(data, function_name="isbn"):
+    if function_name == "isbn":
         mod_number = 0
     else:
         mod_number = 1  # Used for UPC
@@ -47,14 +47,14 @@ def isbn13calculate(data, function_name='isbn'):
             total_sum += item
         position_counter += 1
     final_value = 10 - (total_sum % 10)
-    if final_value == 10 and function_name != 'isbn':
-        return '0'
+    if final_value == 10 and function_name != "isbn":
+        return "0"
     elif final_value == 10:
         return "X"
     return str(final_value)
 
 
-print(isbn13calculate("69645331139", 'upc'))
+print(isbn13calculate("69645331139", "upc"))
 
 
 def isbn13check(data):
@@ -64,8 +64,8 @@ def isbn13check(data):
 def calculate_missing(data):
     for poss_digit in range(0, 11):
         if poss_digit == 10:
-            poss_digit = 'X'
-        if len(data) == 10 and isbn10check(data.replace('?', str(poss_digit))):
+            poss_digit = "X"
+        if len(data) == 10 and isbn10check(data.replace("?", str(poss_digit))):
             return str(poss_digit)
-        elif len(data) == 13 and isbn13check(data.replace('?', str(poss_digit))):
+        elif len(data) == 13 and isbn13check(data.replace("?", str(poss_digit))):
             return str(poss_digit)

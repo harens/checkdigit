@@ -32,7 +32,7 @@ def luhn_calculate(data):
         position_counter += 1
     final_result = 10 - (total_sum % 10)
     if final_result == 10:
-        return '0'
+        return "0"
     return str(final_result)
 
 

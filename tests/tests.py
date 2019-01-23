@@ -21,4 +21,9 @@ import test_upc
 import test_luhn
 import config
 
-config.final_output(test_isbn.isbn_time() + test_parity.parity_time() + test_upc.upc_time() + test_luhn.luhn_time())
+config.final_output(
+    test_isbn.isbn_time()
+    + test_parity.parity_time()
+    + test_upc.upc_time()
+    + test_luhn.luhn_time()
+)

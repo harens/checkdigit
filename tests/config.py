@@ -24,14 +24,14 @@ total_tests = 0
 
 # Credit to spscah
 def test(function, value, function_name):
-    if 'parity' in function_name:
-        file_name = 'test_parity.py'
-    elif 'upc' in function_name:
-        file_name = 'test_upc.py'
-    elif 'luhn' in function_name:
-        file_name = 'test_luhn.py'
+    if "parity" in function_name:
+        file_name = "test_parity.py"
+    elif "upc" in function_name:
+        file_name = "test_upc.py"
+    elif "luhn" in function_name:
+        file_name = "test_luhn.py"
     else:
-        file_name = 'test_isbn'
+        file_name = "test_isbn"
     global total_tests
     total_tests += 1
     linenum = str(sys._getframe(1).f_lineno)
@@ -42,7 +42,9 @@ def test(function, value, function_name):
         number_success += 1
     else:
         print("")
-        print("❌ {0} failed at line {1} in {2}".format(function_name, linenum, file_name))
+        print(
+            "❌ {0} failed at line {1} in {2}".format(function_name, linenum, file_name)
+        )
         print("Program Output:", function)
         print("Expected Output:", value)
         global number_failed

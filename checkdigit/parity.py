@@ -24,4 +24,3 @@ def oddparity(data):
     if data.count("1") % 2 == 0:
         return data + "1"
     return data + "0"
-

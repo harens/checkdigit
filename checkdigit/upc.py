@@ -17,7 +17,7 @@ from checkdigit import isbn
 
 
 def upc_calculate(data):
-    return isbn.isbn13calculate(data, 'upc')
+    return isbn.isbn13calculate(data, "upc")
 
 
 def upc_check(data):
