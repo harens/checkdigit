@@ -13,10 +13,12 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
+
 def evenparity(data):
     if data.count("1") % 2 == 0:
         return data + "0"
     return data + "1"
+
 
 def oddparity(data):
     if data.count("1") % 2 == 0:

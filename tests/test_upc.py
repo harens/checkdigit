@@ -22,24 +22,25 @@ start_time = time.time()
 sys.path.append("../")  # Go back a directory
 from checkdigit import upc
 
-test(upc.upcCalculate("17593487596") == "0")
-test(upc.upcCalculate("64161295255") == "6")
-test(upc.upcCalculate("69861509878") == "1")
-test(upc.upcCalculate("73799324006") == "8")
-test(upc.upcCalculate("69645331139") == "0")
+test(upc.upc_calculate("17593487596"), "0", 'upc_calculate (1)')
+test(upc.upc_calculate("64161295255"), "6", 'upc_calculate (2)')
+test(upc.upc_calculate("69861509878"), "1", 'upc_calculate (3)')
+test(upc.upc_calculate("73799324006"), "8", 'upc_calculate (4)')
+test(upc.upc_calculate("69645331139"), "0", 'upc_calculate (5)')
 
-test(upc.upcCheck("672792398018"))
-test(upc.upcCheck("641612952556"))
-test(upc.upcCheck("698615098781"))
-test(upc.upcCheck("737993240068"))
-test(upc.upcCheck("696453311390"))
-test(upc.upcCheck("672792398017") is False)
-test(upc.upcCheck("641612952555") is False)
-test(upc.upcCheck("698615098782") is False)
-test(upc.upcCheck("737993240069") is False)
-test(upc.upcCheck("696453311393") is False)
+test(upc.upc_check("672792398018"), True, 'upc_check(1)')
+test(upc.upc_check("641612952556"), True, 'upc_check(2)')
+test(upc.upc_check("698615098781"), True, 'upc_check(3)')
+test(upc.upc_check("737993240068"), True, 'upc_check(4)')
+test(upc.upc_check("696453311390"), True, 'upc_check(5)')
+test(upc.upc_check("672792398017"), False, 'upc_check(6)')
+test(upc.upc_check("641612952555"), False, 'upc_check(7)')
+test(upc.upc_check("698615098782"), False, 'upc_check(8)')
+test(upc.upc_check("737993240069"), False, 'upc_check(9)')
+test(upc.upc_check("696453311393"), False, 'upc_check(10)')
 
 finish_time = time.time()
+
 
 def upc_time():
     return finish_time - start_time

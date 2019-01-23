@@ -26,6 +26,8 @@ total_tests = 0
 def test(function, value, function_name):
     if 'parity' in function_name:
         file_name = 'test_parity.py'
+    elif 'upc' in function_name:
+        file_name = 'test_upc'
     else:
         file_name = 'test_isbn'
     global total_tests

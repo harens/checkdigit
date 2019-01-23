@@ -15,8 +15,10 @@
 
 from checkdigit import isbn
 
-def upcCalculate(data):
-  return isbn.isbn13calculate(data, 'upc')
-  
-def upcCheck(data):
-  return upcCalculate(data[:10]) == data[-1]
+
+def upc_calculate(data):
+    return isbn.isbn13calculate(data, 'upc')
+
+
+def upc_check(data):
+    return upc_calculate(data[:11]) == data[-1]

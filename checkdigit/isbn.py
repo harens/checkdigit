@@ -47,9 +47,14 @@ def isbn13calculate(data, function_name='isbn'):
             total_sum += item
         position_counter += 1
     final_value = 10 - (total_sum % 10)
-    if final_value == 10:
+    if final_value == 10 and function_name != 'isbn':
+        return '0'
+    elif final_value == 10:
         return "X"
     return str(final_value)
+
+
+print(isbn13calculate("69645331139", 'upc'))
 
 
 def isbn13check(data):
