@@ -28,6 +28,17 @@ test(upc.upcCalculate("69861509878") == "1")
 test(upc.upcCalculate("73799324006") == "8")
 test(upc.upcCalculate("69645331139") == "0")
 
+test(upc.upcCheck("672792398018"))
+test(upc.upcCheck("641612952556"))
+test(upc.upcCheck("698615098781"))
+test(upc.upcCheck("737993240068"))
+test(upc.upcCheck("696453311390"))
+test(upc.upcCheck("672792398017") is False)
+test(upc.upcCheck("641612952555") is False)
+test(upc.upcCheck("698615098782") is False)
+test(upc.upcCheck("737993240069") is False)
+test(upc.upcCheck("696453311393") is False)
+
 finish_time = time.time()
 
 def upc_time():
