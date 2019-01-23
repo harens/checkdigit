@@ -36,7 +36,7 @@ def isbn13calculate(data, function_name='isbn'):
     if function_name == 'isbn':
         mod_number = 0
     else:
-        mod_number = 1
+        mod_number = 1  # Used for UPC
     total_sum = 0
     position_counter = 1  # 1 based indexing for data
     for item in data:
