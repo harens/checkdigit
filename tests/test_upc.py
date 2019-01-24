@@ -17,22 +17,31 @@ import sys
 import time
 from config import test
 
+# Times all test functions
 start_time = time.time()
 
 sys.path.append("../")  # Go back a directory
 from checkdigit import upc
 
+# TEST FUNCTION FORMAT
+# First Parameter => Function Output
+# Second Parameter => Expected Output
+# Third Parameter => Test number/Test name
+
+# Determines Check Digit
 test(upc.upc_calculate("17593487596"), "0", "upc_calculate (1)")
 test(upc.upc_calculate("64161295255"), "6", "upc_calculate (2)")
 test(upc.upc_calculate("69861509878"), "1", "upc_calculate (3)")
 test(upc.upc_calculate("73799324006"), "8", "upc_calculate (4)")
 test(upc.upc_calculate("69645331139"), "0", "upc_calculate (5)")
 
+# Validates UPC Code
 test(upc.upc_check("672792398018"), True, "upc_check(1)")
 test(upc.upc_check("641612952556"), True, "upc_check(2)")
 test(upc.upc_check("698615098781"), True, "upc_check(3)")
 test(upc.upc_check("737993240068"), True, "upc_check(4)")
 test(upc.upc_check("696453311390"), True, "upc_check(5)")
+
 test(upc.upc_check("672792398017"), False, "upc_check(6)")
 test(upc.upc_check("641612952555"), False, "upc_check(7)")
 test(upc.upc_check("698615098782"), False, "upc_check(8)")
@@ -42,5 +51,6 @@ test(upc.upc_check("696453311393"), False, "upc_check(10)")
 finish_time = time.time()
 
 
+# Imported by tests.py to determine overall time completion
 def upc_time():
     return finish_time - start_time

@@ -35,5 +35,9 @@ Or download the project [here](https://github.com/harens/checkdigit/archive/mast
 The test folder can be found here [here](https://github.com/harens/checkdigit/tree/master/tests)
 
 You can run the tests by running `python tests.py`
+
+Here is an example output:
+
+![Example Tests](./art/tests.png)
 ## License
 This project is licensed under the [GNU General Public License v3.0](https://github.com/harens/checkdigit/blob/master/LICENSE)

@@ -16,11 +16,11 @@
 
 
 def luhn_calculate(data):
-    position_counter = 1
+    position_counter = 1  # 1-based indexing
     total_sum = 0
     for item in data[::-1]:  # Reverses String
         item = int(item)
-        if position_counter % 2 == 1:
+        if position_counter % 2 == 1:  # If position number is odd with reversed string
             add_value = item * 2
             if add_value > 9:
                 for number in str(add_value):  # Adds individual digits together
@@ -37,4 +37,6 @@ def luhn_calculate(data):
 
 
 def luhn_validate(data):
-    return luhn_calculate(data[:-1]) == data[-1]
+    return (
+        luhn_calculate(data[:-1]) == data[-1]
+    )  # Determines if calculated Check Digit of the data is the last digit given

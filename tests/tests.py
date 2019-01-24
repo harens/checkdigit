@@ -15,12 +15,14 @@
 
 # This file lists the order for the tests
 
+# Import all test files
 import test_isbn
 import test_parity
 import test_upc
 import test_luhn
 import config
 
+# Adds all times together
 config.final_output(
     test_isbn.isbn_time()
     + test_parity.parity_time()

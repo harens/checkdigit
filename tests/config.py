@@ -17,13 +17,18 @@
 
 import sys
 
+# Global counter for all tests
 number_success = 0
 number_failed = 0
 total_tests = 0
 
 
 # Credit to spscah
+# function => Function Output
+# value => Expected Output
+# function_name => Helps to determine the file of the function
 def test(function, value, function_name):
+    # File of the function outputted for debugging
     if "parity" in function_name:
         file_name = "test_parity.py"
     elif "upc" in function_name:
@@ -34,7 +39,9 @@ def test(function, value, function_name):
         file_name = "test_isbn"
     global total_tests
     total_tests += 1
+    # Line number of the function in its module
     linenum = str(sys._getframe(1).f_lineno)
+    # If the output was expected
     did_pass = function == value
     if did_pass:
         print("✅ {0} Succeeded".format(function_name))
@@ -52,6 +59,8 @@ def test(function, value, function_name):
         print("")
 
 
+# Overview of test results
+# Outputted once all tests are complete
 def final_output(time):
     time = round(time, 4)
     print("")
@@ -62,6 +71,7 @@ def final_output(time):
     elif number_success == 0:
         print("Out of {0} tests, all failed in {1} seconds".format(total_tests, time))
         exit(1)
+    # If some tests failed and others succeeded
     else:
         print(
             "Out of {0} tests, {1} succeeded and {2} failed in {3} seconds".format(

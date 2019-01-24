@@ -15,10 +15,15 @@
 
 from checkdigit import isbn
 
+# ISBN calculations are very similar to that of UPC
+# The only major difference is that the ODD instead of even placed digits are multiplied by 3
+
 
 def upc_calculate(data):
     return isbn.isbn13calculate(data, "upc")
 
 
 def upc_check(data):
-    return upc_calculate(data[:11]) == data[-1]
+    return (
+        upc_calculate(data[:11]) == data[-1]
+    )  # Determines if calculated Check Digit of the data is the last digit given

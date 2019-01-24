@@ -14,6 +14,7 @@
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
 
+# Calculates ISBN-10 Check Digits
 def isbn10calculate(data):
     total_sum = 0
     multiply_counter = 10
@@ -28,8 +29,11 @@ def isbn10calculate(data):
     return str(check_digit)
 
 
+# Validates ISBN-10
 def isbn10check(data):
-    return isbn10calculate(data[:9]) == data[-1]  # Sees if check digit is valid
+    return (
+        isbn10calculate(data[:9]) == data[-1]
+    )  # Determines if calculated Check Digit of the data is the last digit given
 
 
 def isbn13calculate(data, function_name="isbn"):
@@ -48,23 +52,24 @@ def isbn13calculate(data, function_name="isbn"):
         position_counter += 1
     final_value = 10 - (total_sum % 10)
     if final_value == 10 and function_name != "isbn":
-        return "0"
+        return "0"  # X is not a valid option for UPCs
     elif final_value == 10:
-        return "X"
+        return "X"  # X is a vaild option for the last digit of ISBNs
     return str(final_value)
 
 
-print(isbn13calculate("69645331139", "upc"))
-
-
 def isbn13check(data):
-    return isbn13calculate(data[:12]) == data[-1]  # Sees if check digit is valid
+    return (
+        isbn13calculate(data[:12]) == data[-1]
+    )  # Determines if calculated Check Digit of the data is the last digit given
 
 
 def calculate_missing(data):
-    for poss_digit in range(0, 11):
+    for poss_digit in range(0, 11):  # Brute Force the 11 options
         if poss_digit == 10:
-            poss_digit = "X"
+            poss_digit = "X"  # '10' as a single digit is X
+        # Depending on the size of the data, the relevant validating function tests it with the generated number
+        # If this fails, the next number is tried
         if len(data) == 10 and isbn10check(data.replace("?", str(poss_digit))):
             return str(poss_digit)
         elif len(data) == 13 and isbn13check(data.replace("?", str(poss_digit))):

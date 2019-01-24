@@ -20,8 +20,15 @@ from config import test
 sys.path.append("../")  # Go back a directory
 from checkdigit import luhn
 
+# Times all test functions
 start_time = time.time()
 
+# TEST FUNCTION FORMAT
+# First Parameter => Function Output
+# Second Parameter => Expected Output
+# Third Parameter => Test number/Test name
+
+# Determine Check Digit
 test(luhn.luhn_calculate("53251309870224"), "3", "luhn_calculate(1)")
 test(luhn.luhn_calculate("601195843045086"), "9", "luhn_calculate(2)")
 test(luhn.luhn_calculate("543669577125419"), "0", "luhn_calculate(3)")
@@ -30,6 +37,7 @@ test(luhn.luhn_calculate("37266630277430"), "0", "luhn_calculate(5)")
 test(luhn.luhn_calculate("91497796683515"), "3", "luhn_calculate(6)")
 test(luhn.luhn_calculate("10408772972296"), "9", "luhn_calculate(7)")
 
+# Validate Data
 test(luhn.luhn_validate("541756116585277"), True, "luhn_validate(1)")
 test(luhn.luhn_validate("526012730485489"), True, "luhn_validate(2)")
 test(luhn.luhn_validate("515853022176176"), True, "luhn_validate(3)")
@@ -42,9 +50,9 @@ test(luhn.luhn_validate("2222222222222222"), False, "luhn_validate(9)")
 test(luhn.luhn_validate("111111111111111"), False, "luhn_validate(10)")
 test(luhn.luhn_validate("33333333333333"), False, "luhn_validate(11)")
 
-
 finish_time = time.time()
 
 
+# Imported by tests.py to determine overall time completion
 def luhn_time():
     return finish_time - start_time

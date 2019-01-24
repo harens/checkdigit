@@ -20,7 +20,13 @@ from config import test
 sys.path.append("../")  # Go back a directory
 from checkdigit import parity
 
+# Times all test functions
 start_time = time.time()
+
+# TEST FUNCTION FORMAT
+# First Parameter => Function Output
+# Second Parameter => Expected Output
+# Third Parameter => Test number/Test name
 
 test(parity.evenparity("0110"), "01100", "evenparity (1)")
 test(parity.evenparity("0"), "00", "evenparity (2)")
@@ -30,8 +36,10 @@ test(parity.oddparity("0110"), "01101", "oddparity (1)")
 test(parity.oddparity("0"), "01", "oddparity (2)")
 test(parity.oddparity("01101"), "011010", "oddparity (3)")
 
+# Overall Time Completion
 final_time = time.time()
 
 
+# Imported by tests.py to determine overall time completion
 def parity_time():
     return final_time - start_time
