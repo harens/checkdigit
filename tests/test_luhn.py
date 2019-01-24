@@ -36,6 +36,12 @@ test(luhn.luhn_validate("515853022176176"), True, "luhn_validate(3)")
 test(luhn.luhn_validate("6011365035868968"), True, "luhn_validate(4)")
 test(luhn.luhn_validate("372098369216316"), True, "luhn_validate(5)")
 test(luhn.luhn_validate("4556098986775827"), True, "luhn_validate(6)")
+test(luhn.luhn_validate("49927398717"), False, "luhn_validate(7)")
+test(luhn.luhn_validate("1234567812345678"), False, "luhn_validate(8)")
+test(luhn.luhn_validate("2222222222222222"), False, "luhn_validate(9)")
+test(luhn.luhn_validate("111111111111111"), False, "luhn_validate(10)")
+test(luhn.luhn_validate("33333333333333"), False, "luhn_validate(11)")
+
 
 finish_time = time.time()
 
