@@ -23,7 +23,7 @@ with open("README.md") as f:
 
 setup(
     name="checkdigit",
-    version="0.0.5",
+    version="0.0.6",
     description="Checking digits with a digit!",
     long_description=long_description,
     long_description_content_type="text/markdown",
