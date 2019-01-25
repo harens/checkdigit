@@ -46,3 +46,10 @@ def luhn_validate(data):
     return (
         luhn_calculate(data[:-1]) == data[-1]
     )  # Determines if calculated Check Digit of the data is the last digit given
+
+
+def luhn_missing(data):
+    data = data.replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
+    for poss_digit in range(0, 10): # Brute Force the 10 options
+        if luhn_validate(data.replace("?", str(poss_digit))):
+            return str(poss_digit)

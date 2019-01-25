@@ -70,7 +70,7 @@ def isbn13check(data):
 
 
 def calculate_missing(data):
-    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
+    data = data.replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
     for poss_digit in range(0, 11):  # Brute Force the 11 options
         if poss_digit == 10:
             poss_digit = "X"  # '10' as a single digit is X

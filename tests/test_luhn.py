@@ -52,6 +52,12 @@ test(luhn.luhn_validate("2222222222222222"), False, "luhn_validate(9)")
 test(luhn.luhn_validate(111111111111111), False, "luhn_validate(10)")
 test(luhn.luhn_validate("33333333333333"), False, "luhn_validate(11)")
 
+# Missing Digit
+test(luhn.luhn_missing('54175611658527?'), '7', 'luhn_missing(1)')
+test(luhn.luhn_missing('52601273?485489'), '0', 'luhn_missing(2)')
+test(luhn.luhn_missing('515853022?76176'), '1', 'luhn_missing(3)')
+test(luhn.luhn_missing('?72098369216316'), '3', 'luhn_missing(4)')
+
 finish_time = time.time()
 
 

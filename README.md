@@ -29,6 +29,7 @@ Or download the project [here](https://github.com/harens/checkdigit/archive/mast
 - Luhn
     - Validates Credit Cards, IMEI Numbers, and more!
     - Determines Check Digits
+    - Calculate Missing Digits
 
 
 ## Tests
