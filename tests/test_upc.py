@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
+# WARNING: Data beginning with 0 must be as a string due to PEP 3127
+
 import sys
 import time
 from config import test

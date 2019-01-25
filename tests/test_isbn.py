@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
+# WARNING: Data beginning with 0 must be as a string due to PEP 3127
+
 import sys
 import time
 from config import test
@@ -30,7 +32,7 @@ from checkdigit import isbn
 
 # ISBN-10 Check digit
 test(isbn.isbn10calculate("006196436"), "0", "isbn10calculate (1)")
-test(isbn.isbn10calculate("190592105"), "5", "isbn10calculate (2)")
+test(isbn.isbn10calculate(190592105), "5", "isbn10calculate (2)")
 test(isbn.isbn10calculate("043942089"), "X", "isbn10calculate (3)")
 
 # Validate ISBN-10
@@ -41,9 +43,10 @@ test(isbn.isbn13calculate("012345678912"), "8", "isbn13calculate")
 
 # Validate ISBN-13
 test(isbn.isbn13check("0123456789128"), True, "isbn13check (1)")
-test(isbn.isbn13check("9781861978769"), True, "isbn13check (2)")
+test(isbn.isbn13check(9781861978769), True, "isbn13check (2)")
 
 # ISBN-10 Missing Digit
+# Must be string due to ? and/or X
 test(isbn.calculate_missing("15688?111X"), "1", "calculate_missing (10a)")
 test(isbn.calculate_missing("812071988?"), "3", "calculate_missing (10b)")
 test(isbn.calculate_missing("020161586?"), "X", "calculate_missing (10c)")

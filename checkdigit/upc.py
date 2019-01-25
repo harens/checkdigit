@@ -15,8 +15,13 @@
 
 from checkdigit import isbn
 
+# WARNING: Data beginning with 0 must be as a string due to PEP 3127
+
 # ISBN calculations are very similar to that of UPC
 # The only major difference is that the ODD instead of even placed digits are multiplied by 3
+
+# Spaces and hyphens do not need to be removed
+# This is since it's removed by the ISBN-13 Function
 
 
 def upc_calculate(data):

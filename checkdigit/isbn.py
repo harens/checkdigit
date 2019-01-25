@@ -13,9 +13,11 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
+# WARNING: Data beginning with 0 must be as a string due to PEP 3127
 
 # Calculates ISBN-10 Check Digits
 def isbn10calculate(data):
+    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
     total_sum = 0
     multiply_counter = 10
     for item in data:
@@ -31,12 +33,14 @@ def isbn10calculate(data):
 
 # Validates ISBN-10
 def isbn10check(data):
+    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
     return (
         isbn10calculate(data[:9]) == data[-1]
     )  # Determines if calculated Check Digit of the data is the last digit given
 
 
 def isbn13calculate(data, function_name="isbn"):
+    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
     if function_name == "isbn":
         mod_number = 0
     else:
@@ -59,12 +63,14 @@ def isbn13calculate(data, function_name="isbn"):
 
 
 def isbn13check(data):
+    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
     return (
         isbn13calculate(data[:12]) == data[-1]
     )  # Determines if calculated Check Digit of the data is the last digit given
 
 
 def calculate_missing(data):
+    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
     for poss_digit in range(0, 11):  # Brute Force the 11 options
         if poss_digit == 10:
             poss_digit = "X"  # '10' as a single digit is X

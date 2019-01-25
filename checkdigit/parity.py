@@ -14,13 +14,17 @@
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
 
+# WARNING: Data beginning with 0 must be as a string due to PEP 3127
+
 def evenparity(data):
+    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
     if data.count("1") % 2 == 0:
         return data + "0"
     return data + "1"
 
 
 def oddparity(data):
+    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
     if data.count("1") % 2 == 0:
         return data + "1"
     return data + "0"

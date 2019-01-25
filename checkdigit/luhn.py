@@ -15,7 +15,11 @@
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
 
+# WARNING: Data beginning with 0 must be as a string due to PEP 3127
+
+# Calculates Check Digits
 def luhn_calculate(data):
+    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
     position_counter = 1  # 1-based indexing
     total_sum = 0
     for item in data[::-1]:  # Reverses String
@@ -37,6 +41,8 @@ def luhn_calculate(data):
 
 
 def luhn_validate(data):
+    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
+    data = (str(data)).replace('-', '')  # Removes Hyphens
     return (
         luhn_calculate(data[:-1]) == data[-1]
     )  # Determines if calculated Check Digit of the data is the last digit given
