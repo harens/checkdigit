@@ -8,9 +8,9 @@
 <br>
 *Checking digits with a digit!*
 
-![Sample Parity](./art/parity.png)  ![Sample UPC](./art/upc.png)
+![Sample Parity](https://raw.githubusercontent.com/harens/checkdigit/master/art/parity.png)  ![Sample UPC](https://raw.githubusercontent.com/harens/checkdigit/master/art/upc.png)
 
-![Sample ISBN](./art/isbn.png) ![Sample Luhn](./art/luhn.png)
+![Sample ISBN](https://raw.githubusercontent.com/harens/checkdigit/master/art/isbn.png) ![Sample Luhn](https://raw.githubusercontent.com/harens/checkdigit/master/art/luhn.png)
 
 ## Installation
 ```shell
@@ -38,6 +38,6 @@ You can run the tests by running `python tests.py`
 
 Here is an example output:
 
-![Example Tests](./art/tests.png)
+![Example Tests](https://raw.githubusercontent.com/harens/checkdigit/master/art/tests.png)
 ## License
 This project is licensed under the [GNU General Public License v3.0](https://github.com/harens/checkdigit/blob/master/LICENSE)
