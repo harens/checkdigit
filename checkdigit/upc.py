@@ -15,6 +15,7 @@
 
 from checkdigit import isbn
 
+
 # WARNING: Data beginning with 0 must be as a string due to PEP 3127
 
 # ISBN calculations are very similar to that of UPC
@@ -24,11 +25,25 @@ from checkdigit import isbn
 # This is since it's removed by the ISBN-13 Function
 
 
-def upc_calculate(data):
-    return isbn.isbn13calculate(data, "upc")
+def calculate(data: str) -> str:
+    """Calculates UPC Check Digit
+
+    Args:
+        data: A string of UPC digit
+
+    Returns:
+        str: The missing check digit
+    """
+    return isbn.calculate13(data, "upc")
 
 
-def upc_check(data):
-    return (
-        upc_calculate(data[:11]) == data[-1]
-    )  # Determines if calculated Check Digit of the data is the last digit given
+def validate(data: str) -> bool:
+    """Determines if calculated check digit of the data is the last digit given
+
+    Args:
+        data: A string of characters representing a full UPC code
+
+    Returns:
+        bool: A boolean representing if the check digit validates the data
+    """
+    return calculate(data[:11]) == data[-1]

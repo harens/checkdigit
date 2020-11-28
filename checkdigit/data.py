@@ -13,23 +13,14 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-from checkdigit.data import cleanse
+
+def cleanse(data: str) -> str:
+    """Removes Hyphens and Spaces so that data can be parsed"""
+    return data.replace("-", "").replace(" ", "")
 
 
-# WARNING: Data beginning with 0 must be as a string due to PEP 3127
-
-
-def calculate(data: str, even: bool = True) -> str:
-    """Adds a parity bit onto the end of a block of data
-
-    Args:
-        data: A string containing binary digits
-        even: Whether to use even parity (otherwise uses odd parity)
-
-    Returns:
-        str: The original data with the parity bit added to the end
-    """
-    data = cleanse(data)
-    if (even and not data.count("1") % 2) or (not even and data.count("1") % 2):
-        return data + "0"
-    return data + "1"
+def convert(digit: int, barcode: str = "isbn") -> str:
+    """Converts digits to strings and replaces 10"""
+    if digit == 10:
+        return "X" if barcode == "isbn" else "0"
+    return "0" if digit == 11 else str(digit)

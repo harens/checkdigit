@@ -13,70 +13,103 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
+from checkdigit.data import cleanse, convert
+
+
 # WARNING: Data beginning with 0 must be as a string due to PEP 3127
 
-# Calculates ISBN-10 Check Digits
-def isbn10calculate(data):
-    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
+
+def calculate10(data: str) -> str:
+    """Calculates ISBN-10 Check Digit
+
+    Args:
+        data: A string of 9 characters
+
+    Returns:
+        str: The check digit that was missing
+    """
+    data = cleanse(data)
     total_sum = 0
     multiply_counter = 10
     for item in data:
         total_sum += int(item) * multiply_counter
         multiply_counter -= 1  # Multiplies first digit by 10, second by 9...
     check_digit = 11 - (total_sum % 11)
-    if check_digit == 10:
-        return "X"
-    elif check_digit == 11:
-        return "0"
-    return str(check_digit)
+    return convert(check_digit)
 
 
-# Validates ISBN-10
-def isbn10check(data):
-    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
+def validate10(data: str) -> bool:
+    """Validates ISBN-10
+
+    Args:
+        data: A string of characters representing a full ISBN-10 code
+
+    Returns:
+        bool: A boolean representing whether the check digit validates the data or not
+
+    """
+    data = cleanse(data)
     return (
-        isbn10calculate(data[:9]) == data[-1]
+        calculate10(data[:9]) == data[-1]
     )  # Determines if calculated Check Digit of the data is the last digit given
 
 
-def isbn13calculate(data, function_name="isbn"):
-    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
-    if function_name == "isbn":
-        mod_number = 0
-    else:
-        mod_number = 1  # Used for UPC
+def calculate13(data: str, barcode: str = "isbn") -> str:
+    """Calculates ISBN-13 Check Digit
+
+    Args:
+        data: A string of 10 characters
+        barcode: The type of code (either isbn or upc)
+
+    Returns:
+        str: The check digit that was missing
+    """
+    data = cleanse(data)
+    mod_number = 0 if barcode == "isbn" else 1
     total_sum = 0
     position_counter = 1  # 1 based indexing for data
     for item in data:
-        item = int(item)
+        digit = int(item)
         if position_counter % 2 == mod_number:
-            total_sum += item * 3  # Multiplies by 3 if position is even
+            total_sum += digit * 3  # Multiplies by 3 if position is even
         else:
-            total_sum += item
+            total_sum += digit
         position_counter += 1
     final_value = 10 - (total_sum % 10)
-    if final_value == 10 and function_name != "isbn":
-        return "0"  # X is not a valid option for UPCs
-    elif final_value == 10:
-        return "X"  # X is a vaild option for the last digit of ISBNs
-    return str(final_value)
+    return convert(final_value, barcode)
 
 
-def isbn13check(data):
-    data = str(data).replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
-    return (
-        isbn13calculate(data[:12]) == data[-1]
-    )  # Determines if calculated Check Digit of the data is the last digit given
+def validate13(data: str) -> bool:
+    """Validates ISBN-13
+
+    Args:
+        data: A string of characters representing a full ISBN-13 code
+
+    Returns:
+        bool: A boolean representing if the check digit validates the data
+
+    """
+    data = cleanse(data)
+    return calculate13(data[:12]) == data[-1]
 
 
-def calculate_missing(data):
-    data = data.replace('-', '').replace(' ', '')  # Removes Hyphens and Spaces
-    for poss_digit in range(0, 11):  # Brute Force the 11 options
-        if poss_digit == 10:
-            poss_digit = "X"  # '10' as a single digit is X
+def missing(data: str) -> str:
+    """Calculates a missing digit in an ISBN Code
+
+    Args:
+        data: A string of characters representing a full ISBN code with a question mark for a missing character
+
+    Returns:
+        str: The missing value that should be where the question mark is
+
+    """
+    data = cleanse(data)
+    for poss_digit in range(11):  # Brute Force the 11 options
+        option = convert(poss_digit)
         # Depending on the size of the data, the relevant validating function tests it with the generated number
         # If this fails, the next number is tried
-        if len(data) == 10 and isbn10check(data.replace("?", str(poss_digit))):
-            return str(poss_digit)
-        elif len(data) == 13 and isbn13check(data.replace("?", str(poss_digit))):
-            return str(poss_digit)
+        if (len(data) == 10 and validate10(data.replace("?", option))) or (
+            len(data) == 13 and validate13(data.replace("?", option))
+        ):
+            return option
+    return "Invalid"
