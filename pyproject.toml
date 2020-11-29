@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "checkdigit"
-version = "1.0.0-alpha.0"
+version = "0.1"
 description = "A check digit library for data validation"
 authors = ["harens <harensdeveloper@gmail.com>"]
 maintainers = ["harens <harensdeveloper@gmail.com>"]

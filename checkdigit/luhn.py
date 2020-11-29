@@ -55,7 +55,7 @@ def validate(data: str) -> bool:
         data: A string of characters representing a full luhn code
 
     Returns:
-        bool: A boolean representing if the check digit validates the data
+        bool: A boolean representing whether the check digit validates the data or not
 
     """
     data = cleanse(data)
@@ -71,7 +71,7 @@ def missing(data: str) -> str:
         data: A string of characters representing a full luhn code with a question mark for a missing character
 
     Returns:
-        str: The missing value that should be where the question mark is
+        str: The missing value that should've been where the question mark was
 
     """
     data = cleanse(data)

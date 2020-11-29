@@ -19,7 +19,7 @@ Or download the project [here](https://github.com/harens/checkdigit/archive/mast
 * Extensive __in-code comments and docstrings__ to explain how the functions work
 * Written in __pure Python__ with __no dependencies__ required to run the program
 
-Check out the [wiki](https://github.com/harens/checkdigit/wiki) for more details on how to use the library
+Check out the [documentation](https://github.com/harens/checkdigit/wiki) for more details on how to use the library
 
 ## License
 This project is licensed under the [GNU General Public License v3.0](https://github.com/harens/checkdigit/blob/master/LICENSE)

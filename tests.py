@@ -53,6 +53,7 @@ test(isbn.calculate13("89268500100", "upc"), "3")
 # Validate ISBN-13
 test(isbn.validate13("0123456789128"))
 test(isbn.validate13("9781861978769"))
+test(isbn.validate13("9-501101-530003"))
 test(isbn.validate13("978-1-56619-909-4"))
 
 # ISBN-10 Missing Digit
@@ -104,6 +105,7 @@ test(luhn.calculate("436076111511668"), "6")
 test(luhn.calculate("37266630277430"), "0")
 test(luhn.calculate("91497796683515"), "3")
 test(luhn.calculate("10408772972296"), "9")
+test(luhn.calculate("950123440000"), "8")
 
 # Validate Data
 test(luhn.validate("541756116585277"))
@@ -112,7 +114,12 @@ test(luhn.validate("515853022176176"))
 test(luhn.validate("6011365035868968"))
 test(luhn.validate("372098369216316"))
 test(luhn.validate("4556098986775827"))
+test(luhn.validate("79927398713"))
 test(luhn.validate("49927398717"), False)
+test(luhn.validate("79927398710"), False)
+test(luhn.validate("79927398711"), False)
+test(luhn.validate("79927398712"), False)
+test(luhn.validate("79927398719"), False)
 test(luhn.validate("1234567812345678"), False)
 test(luhn.validate("2222222222222222"), False)
 test(luhn.validate("111111111111111"), False)

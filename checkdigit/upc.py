@@ -26,10 +26,10 @@ from checkdigit import isbn
 
 
 def calculate(data: str) -> str:
-    """Calculates UPC Check Digit
+    """Calculates UPC Check Digits
 
     Args:
-        data: A string of UPC digit
+        data: A string of UPC digits
 
     Returns:
         str: The missing check digit
@@ -38,12 +38,12 @@ def calculate(data: str) -> str:
 
 
 def validate(data: str) -> bool:
-    """Determines if calculated check digit of the data is the last digit given
+    """Determines if the calculated check digit of the data is the last digit given
 
     Args:
         data: A string of characters representing a full UPC code
 
     Returns:
-        bool: A boolean representing if the check digit validates the data
+        bool: A boolean representing whether the check digit validates the data or not
     """
-    return calculate(data[:11]) == data[-1]
+    return calculate(data[:-1]) == data[-1]

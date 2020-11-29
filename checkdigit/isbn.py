@@ -49,16 +49,14 @@ def validate10(data: str) -> bool:
 
     """
     data = cleanse(data)
-    return (
-        calculate10(data[:9]) == data[-1]
-    )  # Determines if calculated Check Digit of the data is the last digit given
+    return calculate10(data[:-1]) == data[-1]
 
 
 def calculate13(data: str, barcode: str = "isbn") -> str:
     """Calculates ISBN-13 Check Digit
 
     Args:
-        data: A string of 10 characters
+        data: A string of 12 characters
         barcode: The type of code (either isbn or upc)
 
     Returns:
@@ -86,21 +84,21 @@ def validate13(data: str) -> bool:
         data: A string of characters representing a full ISBN-13 code
 
     Returns:
-        bool: A boolean representing if the check digit validates the data
+        bool: A boolean representing whether the check digit validates the data
 
     """
     data = cleanse(data)
-    return calculate13(data[:12]) == data[-1]
+    return calculate13(data[:-1]) == data[-1]
 
 
 def missing(data: str) -> str:
     """Calculates a missing digit in an ISBN Code
 
     Args:
-        data: A string of characters representing a full ISBN code with a question mark for a missing character
+        data: A string of characters representing a full ISBN code with a question mark representing a missing character
 
     Returns:
-        str: The missing value that should be where the question mark is
+        str: The missing value that should've been where the question mark was
 
     """
     data = cleanse(data)
