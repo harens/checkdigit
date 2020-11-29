@@ -1,6 +1,6 @@
 # checkdigit
 
-A check digit library for data validation
+A check digit library for data validation.
   
 | Test Status | [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/harens/checkdigit/Tests?logo=github&style=flat-square)](https://github.com/harens/checkdigit/actions) [![Codecov](https://img.shields.io/codecov/c/github/harens/checkdigit?style=flat-square)](https://codecov.io/gh/harens/checkdigit)  |
 |:--|:--|
@@ -13,16 +13,41 @@ A check digit library for data validation
 pip install checkdigit
 ```
 
-Or download the project [here](https://github.com/harens/checkdigit/archive/master.zip)
+Or download the project [here](https://github.com/harens/checkdigit/archive/master.zip).
 
 ## ✨ Features
 
-* Contains various functions relating to __Luhn, ISBN and UPC codes__
+* Contains various functions relating to __Luhn, ISBN, UPC and many other codes__
 * Extensive __in-code comments and docstrings__ to explain how the functions work
 * Written in __pure Python__ with __no dependencies__ required to run the program
 
-Check out the [documentation](https://github.com/harens/checkdigit/wiki) for more details on how to use the library
+Check out the [documentation](https://github.com/harens/checkdigit/wiki) for more details on how to use the library.
 
-## License
+## 🏗️ Contributing
+
+Any change, big or small, that you think can help improve this project is more than welcome 🎉.
+
+As well as this, feel free to open an issue with any new suggestions or bug reports. Every contribution is valued.
+
+For smaller tasks (that are still really appreciated 😃), be sure to check the [good first issue](https://github.com/harens/checkdigit/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) tag.
+
+## 💻 Setup
+
+Clone the project and install the dev dependencies if required:
+
+```shell
+git clone https://github.com/harens/checkdigit
+cd checkdigit
+poetry install
+```
+
+If you want to send a PR, please run the following:
+
+```bash
+poetry run python tests.py  # Run tests
+poetry run black .          # Format files
+```
+
+## 📒 License
 
 This project is licensed under [GPL-3.0-or-later](https://github.com/harens/checkdigit/blob/master/LICENSE).
