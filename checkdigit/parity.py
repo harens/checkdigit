@@ -13,14 +13,22 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-from checkdigit.data import cleanse
+"""Parity Validation Functions.
 
+A parity bit is added to the end of a block of binary as a form of data validation.
+
+For more information, please look at the wiki page for this module:
+https://github.com/harens/checkdigit/wiki/1%EF%B8%8F⃣-Parity-Bits
+
+"""
+
+from checkdigit._data import cleanse
 
 # WARNING: Data beginning with 0 must be as a string due to PEP 3127
 
 
 def calculate(data: str, even: bool = True) -> str:
-    """Adds a parity bit onto the end of a block of data
+    """Adds a parity bit onto the end of a block of data.
 
     Args:
         data: A string containing binary digits

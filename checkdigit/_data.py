@@ -13,14 +13,20 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
+"""Data cleansing.
+
+This module contains functions that help to format data so that it can be interpreted easier.
+
+"""
+
 
 def cleanse(data: str) -> str:
-    """Removes Hyphens and Spaces so that data can be parsed"""
+    """Removes Hyphens and Spaces so that data can be parsed."""
     return data.replace("-", "").replace(" ", "")
 
 
 def convert(digit: int, barcode: str = "isbn") -> str:
-    """Converts digits to strings and replaces 10"""
+    """Converts digits to strings and replaces 10."""
     if digit == 10:
         return "X" if barcode == "isbn" else "0"
     return "0" if digit == 11 else str(digit)

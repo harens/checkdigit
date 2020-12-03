@@ -13,14 +13,24 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-from checkdigit.data import cleanse, convert
+"""ISBN Validation Functions.
 
+ISBN codes are product identifiers used predominantly for books.
+
+For more information, please look at the wiki page for this module:
+https://github.com/harens/checkdigit/wiki/📖-ISBN
+
+Note that the ISBN-13 functions can also be used for EAN-13 and Bookland codes
+
+"""
+
+from checkdigit._data import cleanse, convert
 
 # WARNING: Data beginning with 0 must be as a string due to PEP 3127
 
 
 def calculate10(data: str) -> str:
-    """Calculates ISBN-10 Check Digit
+    """Calculates ISBN-10 Check Digit.
 
     Args:
         data: A string of 9 characters
@@ -39,13 +49,14 @@ def calculate10(data: str) -> str:
 
 
 def validate10(data: str) -> bool:
-    """Validates ISBN-10
+    """Validates ISBN-10.
 
     Args:
         data: A string of characters representing a full ISBN-10 code
 
     Returns:
-        bool: A boolean representing whether the check digit validates the data or not
+        bool: A boolean representing whether the
+            check digit validates the data or not
 
     """
     data = cleanse(data)
@@ -53,7 +64,7 @@ def validate10(data: str) -> bool:
 
 
 def calculate13(data: str, barcode: str = "isbn") -> str:
-    """Calculates ISBN-13 Check Digit
+    """Calculates ISBN-13 Check Digit.
 
     Args:
         data: A string of 12 characters
@@ -78,7 +89,7 @@ def calculate13(data: str, barcode: str = "isbn") -> str:
 
 
 def validate13(data: str) -> bool:
-    """Validates ISBN-13
+    """Validates ISBN-13.
 
     Args:
         data: A string of characters representing a full ISBN-13 code
@@ -92,10 +103,11 @@ def validate13(data: str) -> bool:
 
 
 def missing(data: str) -> str:
-    """Calculates a missing digit in an ISBN Code
+    """Calculates a missing digit in an ISBN Code.
 
     Args:
-        data: A string of characters representing a full ISBN code with a question mark representing a missing character
+        data: A string of characters representing a full ISBN code
+            with a question mark representing a missing character
 
     Returns:
         str: The missing value that should've been where the question mark was
@@ -104,7 +116,8 @@ def missing(data: str) -> str:
     data = cleanse(data)
     for poss_digit in range(11):  # Brute Force the 11 options
         option = convert(poss_digit)
-        # Depending on the size of the data, the relevant validating function tests it with the generated number
+        # Depending on the size of the data, the relevant validating function
+        # tests it with the generated number
         # If this fails, the next number is tried
         if (len(data) == 10 and validate10(data.replace("?", option))) or (
             len(data) == 13 and validate13(data.replace("?", option))

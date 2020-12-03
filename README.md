@@ -17,9 +17,9 @@ Or download the project [here](https://github.com/harens/checkdigit/archive/mast
 
 ## ✨ Features
 
-* Contains various functions relating to __Luhn, ISBN, UPC and many other codes__
-* Extensive __in-code comments and docstrings__ to explain how the functions work
-* Written in __pure Python__ with __no dependencies__ required to run the program
+* Contains various functions relating to __Luhn, ISBN, UPC and many other codes__.
+* Extensive __in-code comments and docstrings__ to explain how the functions work.
+* Written in __pure Python__ with __no dependencies__ required to run the program.
 
 Check out the [documentation](https://github.com/harens/checkdigit/wiki) for more details on how to use the library.
 
@@ -33,7 +33,7 @@ For smaller tasks (that are still really appreciated 😃), be sure to check the
 
 ## 💻 Setup
 
-Clone the project and install the dev dependencies if required:
+Clone the project and install the dev dependencies:
 
 ```shell
 git clone https://github.com/harens/checkdigit
@@ -44,8 +44,11 @@ poetry install
 If you want to send a PR, please run the following:
 
 ```bash
-poetry run python tests.py  # Run tests
-poetry run black .          # Format files
+bash ./scripts/format.sh # Format files
+bash ./scripts/tests.sh  # Run tests
+
+# NB shellcheck is not installed by poetry
+shellcheck scripts/*.sh
 ```
 
 ## 📒 License

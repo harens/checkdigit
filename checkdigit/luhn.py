@@ -14,14 +14,22 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-from checkdigit.data import cleanse, convert
+"""Luhn Validation Functions.
 
+The luhn algorithm has a variety of applications, including in credit cards and IMEI numbers.
+
+For more information, please look at the wiki page for this module:
+https://github.com/harens/checkdigit/wiki/💳-Luhn
+
+"""
+
+from checkdigit._data import cleanse, convert
 
 # WARNING: Data beginning with 0 must be as a string due to PEP 3127
 
 
 def calculate(data: str) -> str:
-    """Calculates the luhn check digit
+    """Calculates the luhn check digit.
 
     Args:
         data: A block of data without the check digit
@@ -49,7 +57,7 @@ def calculate(data: str) -> str:
 
 
 def validate(data: str) -> bool:
-    """Validates a luhn check digit
+    """Validates a luhn check digit.
 
     Args:
         data: A string of characters representing a full luhn code
@@ -65,10 +73,11 @@ def validate(data: str) -> bool:
 
 
 def missing(data: str) -> str:
-    """Calculates a missing digit in a luhn code
+    """Calculates a missing digit in a luhn code.
 
     Args:
-        data: A string of characters representing a full luhn code with a question mark for a missing character
+        data: A string of characters representing a full luhn code
+            with a question mark for a missing character
 
     Returns:
         str: The missing value that should've been where the question mark was

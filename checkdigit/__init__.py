@@ -12,3 +12,13 @@
 # GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
+
+"""A check digit library for data validation.
+
+This Python library contains various functions relating to Luhn, ISBN, UPC and many other codes.
+It is able to validate blocks of data, as well as calulate missing digits and check digits.
+
+For more information, please look at the GitHub page for this library:
+https://github.com/harens/checkdigit
+
+"""

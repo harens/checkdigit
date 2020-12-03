@@ -13,6 +13,17 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
+"""Tests File.
+
+This file contains error404 tests for the checkdigit library.
+The various sections are marked by comments e.g. # Even parity.
+
+Test Function Format:
+    * First Parameter => Function Output
+    * Second Parameter => Expected Output (not required if output is True)
+
+"""
+
 from error404 import test
 
 import checkdigit.isbn as isbn

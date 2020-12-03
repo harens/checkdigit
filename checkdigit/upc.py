@@ -13,8 +13,17 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-from checkdigit import isbn
+"""Parity Validation Functions.
 
+UPC-A codes are the main variant of Universal Product Codes.
+They contain 12 digits and are mainly used for product identification.
+
+For more information, please look at the wiki page for this module:
+https://github.com/harens/checkdigit/wiki/📦-UPC-A
+
+"""
+
+from checkdigit import isbn
 
 # WARNING: Data beginning with 0 must be as a string due to PEP 3127
 
@@ -26,7 +35,7 @@ from checkdigit import isbn
 
 
 def calculate(data: str) -> str:
-    """Calculates UPC Check Digits
+    """Calculates UPC Check Digits.
 
     Args:
         data: A string of UPC digits
@@ -38,7 +47,7 @@ def calculate(data: str) -> str:
 
 
 def validate(data: str) -> bool:
-    """Determines if the calculated check digit of the data is the last digit given
+    """Determines if the calculated check digit of the data is the last digit given.
 
     Args:
         data: A string of characters representing a full UPC code

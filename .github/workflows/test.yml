@@ -1,4 +1,5 @@
 # Based off https://github.com/Electrostatics/mmcif_pdbx/blob/master/.github/workflows/python-package.yml
+# Also credit to https://github.com/commitizen-tools/commitizen/tree/master/.github/workflows
 
 name: Tests
 on: [push, pull_request]
@@ -18,19 +19,21 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip setuptools wheel
-        pip install black
-        pip install coverage
-        pip install error404
-    - name: Format code with black
-      run: black --check .
+        brew install shellcheck
+        python -m pip install -U pip poetry
+        poetry --version
+        poetry install
+    - name: ShellCheck
+      run: |
+        shellcheck scripts/*.sh
     - name: Run Tests
       run: |
-        coverage run tests.py
-        coverage report -m | tee coverage.txt
-        coverage html
+        bash ./scripts/tests.sh
     - name: Upload coverage
-      run: bash <(curl -s https://codecov.io/bash)
+      run: |
+        poetry run coverage report -m | tee coverage.txt
+        poetry run coverage html
+        bash <(curl -s https://codecov.io/bash)
     - name: Store coverage text results
       uses: actions/upload-artifact@v2
       with:
