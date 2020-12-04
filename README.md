@@ -18,6 +18,7 @@ Or download the project [here](https://github.com/harens/checkdigit/archive/mast
 ## ✨ Features
 
 * Contains various functions relating to __Luhn, ISBN, UPC and many other codes__.
+* __[PEP 561 compatible](https://www.python.org/dev/peps/pep-0561)__, with built in support for type checking.
 * Extensive __in-code comments and docstrings__ to explain how the functions work.
 * Written in __pure Python__ with __no dependencies__ required to run the program.
 
