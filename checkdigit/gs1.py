@@ -15,8 +15,10 @@
 
 """GS1 Validation Functions."""
 
-from checkdigit._data import cleanse, convert
 import math
+
+from checkdigit._data import cleanse, convert
+
 
 # WARNING: Data beginning with 0 must be as a string due to PEP 3127
 
@@ -44,7 +46,6 @@ def calculate(data: str) -> str:
     next_multiple_of_ten = int(math.ceil(total_sum / 10.0)) * 10
     check_digit = next_multiple_of_ten - total_sum
     return convert(check_digit, "gs1")
-
 
 
 def validate(data: str) -> bool:
