@@ -26,11 +26,11 @@ Test Function Format:
 
 from error404 import test
 
+import checkdigit.gs1 as gs1
 import checkdigit.isbn as isbn
 import checkdigit.luhn as luhn
 import checkdigit.parity as parity
 import checkdigit.upc as upc
-import checkdigit.gs1 as gs1
 
 # Even parity
 test(parity.calculate("0110"), "01100")

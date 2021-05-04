@@ -19,7 +19,6 @@ import math
 
 from checkdigit._data import cleanse, convert
 
-
 # WARNING: Data beginning with 0 must be as a string due to PEP 3127
 
 
