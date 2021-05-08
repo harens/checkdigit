@@ -32,15 +32,33 @@ import checkdigit.luhn as luhn
 import checkdigit.parity as parity
 import checkdigit.upc as upc
 
-# Even parity
-test(parity.calculate("0110"), "01100")
-test(parity.calculate("0"), "00")
-test(parity.calculate("01101"), "011011")
+# Calculate even parity check digit
+test(parity.calculate("0110"), "0")
+test(parity.calculate("0"), "0")
+test(parity.calculate("01101"), "1")
 
-# Odd parity
-test(parity.calculate("0110", False), "01101")
-test(parity.calculate("0", False), "01")
-test(parity.calculate("01101", False), "011010")
+# Calculate odd parity check digit
+test(parity.calculate("0110", False), "1")
+test(parity.calculate("0", False), "1")
+test(parity.calculate("01101", False), "0")
+
+# Validate even parity check digit
+test(parity.validate("01100"))
+test(parity.validate("01101"), False)
+
+# Validate odd parity check digit
+test(parity.validate("01101", False))
+test(parity.validate("01100", False), False)
+
+# Missing parity digit (even)
+test(parity.missing("01?00"), "1")
+test(parity.missing("01?100"), "0")
+test(parity.missing("010100?"), "0")
+
+# Missing parity digit (odd)
+test(parity.missing("01101?", False), "0")
+test(parity.missing("01?010", False), "1")
+test(parity.missing("010010?011", False), "1")
 
 # ISBN-10 Check digit
 test(isbn.calculate10("006196436"), "0")

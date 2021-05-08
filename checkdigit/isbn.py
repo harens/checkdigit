@@ -96,7 +96,7 @@ def validate13(data: str) -> bool:
 
 
 def missing(data: str) -> str:
-    """Calculates a missing digit in an ISBN Code.
+    """Calculates a missing digit in an ISBN Code represented by a question mark.
 
     Args:
         data: A string of characters representing a full ISBN code

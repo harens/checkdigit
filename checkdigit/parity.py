@@ -32,12 +32,40 @@ def calculate(data: str, even: bool = True) -> str:
 
     Args:
         data: A string containing binary digits
-        even: Whether to use even parity (otherwise uses odd parity)
+        even: Whether to use even or odd parity (defaults to even)
 
     Returns:
-        str: The original data with the parity bit added to the end
+        str: The parity bit of the data
     """
     data = cleanse(data)
     if (even and not data.count("1") % 2) or (not even and data.count("1") % 2):
-        return data + "0"
-    return data + "1"
+        return "0"
+    return "1"
+
+
+def validate(data: str, even: bool = True) -> bool:
+    """Validates whether the check digit matches a block of data.
+
+    Args:
+        data: A string containing binary digits
+        even: Whether to use even or odd parity (defaults to even)
+
+    Returns:
+        bool: A boolean representing whether the data is valid or not
+    """
+    data = cleanse(data)
+    return calculate(data[:-1], even) == data[-1]
+
+
+def missing(data: str, even: bool = True) -> str:
+    """Calculates a missing digit represented by a question mark.
+
+    Args:
+        data: A string containing a question mark representing a missing digit.
+        even: Whether to use even or odd parity (defaults to even)
+
+    Returns:
+        str: The missing binary digit
+    """
+    # Same principle as check digit (just not necessarily on the end)
+    return calculate(data.replace("?", ""), even)
