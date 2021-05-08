@@ -39,13 +39,11 @@ def calculate10(data: str) -> str:
         str: The check digit that was missing
     """
     data = cleanse(data)
-    total_sum = 0
-    multiply_counter = 10
-    for item in data:
-        total_sum += int(item) * multiply_counter
-        multiply_counter -= 1  # Multiplies first digit by 10, second by 9...
-    check_digit = 11 - (total_sum % 11)
-    return convert(check_digit)
+    # Multiply first digit by 10, second by 9, ... and take the sum
+    total_sum = sum(
+        int(digit) * weight for digit, weight in zip(data, range(10, 0, -1))
+    )
+    return convert(11 - (total_sum % 11))
 
 
 def validate10(data: str) -> bool:
@@ -74,18 +72,13 @@ def calculate13(data: str, barcode: str = "isbn") -> str:
         str: The check digit that was missing
     """
     data = cleanse(data)
-    mod_number = 0 if barcode == "isbn" else 1
-    total_sum = 0
-    position_counter = 1  # 1 based indexing for data
-    for item in data:
-        digit = int(item)
-        if position_counter % 2 == mod_number:
-            total_sum += digit * 3  # Multiplies by 3 if position is even
-        else:
-            total_sum += digit
-        position_counter += 1
-    final_value = 10 - (total_sum % 10)
-    return convert(final_value, barcode)
+    # ISBN weights is 1 for odd positions and 3 for even
+    # The opposite is true for upc
+    weights = (1, 3) * 6 if barcode == "isbn" else (3, 1) * 6
+    # Multiply each digit by its weight
+    total_sum = sum(int(digit) * weight for digit, weight in zip(data, weights))
+    # Return final check digit and type of barcode
+    return convert(10 - (total_sum % 10), barcode)
 
 
 def validate13(data: str) -> bool:
@@ -114,13 +107,22 @@ def missing(data: str) -> str:
 
     """
     data = cleanse(data)
-    for poss_digit in range(11):  # Brute Force the 11 options
-        option = convert(poss_digit)
-        # Depending on the size of the data, the relevant validating function
-        # tests it with the generated number
-        # If this fails, the next number is tried
-        if (len(data) == 10 and validate10(data.replace("?", option))) or (
-            len(data) == 13 and validate13(data.replace("?", option))
+    data_length = len(data)  # ISBN-10 or 13
+    # We already have an efficient method for the checkdigit
+    if data[-1] == "?":
+        # Remove question mark check digit
+        return calculate10(data[:-1]) if data_length == 10 else calculate13(data[:-1])
+
+    # We've dealt with the check digit, so X can't be an option
+    # Brute force all the possible numbers (0-9 inclusive)
+    for option in (data.replace("?", str(i)) for i in range(10)):
+        # Validate the new option
+        if (
+            data_length == 10
+            and validate10(option)
+            or data_length == 13
+            and validate13(option)
         ):
-            return option
+            # Replace question mark with new value
+            return option[data.index("?")]
     return "Invalid"

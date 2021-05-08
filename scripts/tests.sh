@@ -11,6 +11,6 @@ ${PREFIX}coverage run tests.py
 poetry check
 ${PREFIX}black --check .
 ${PREFIX}isort --check-only .
-${PREFIX}mypy .
+${PREFIX}mypy --strict .
 ${PREFIX}pylint checkdigit
 ${PREFIX}pydocstyle --convention=google
