@@ -47,7 +47,7 @@ def calculate(data: str, polynomial: str, pad: str = "0") -> str:
     data += pad * (len(polynomial) - 1)
     bitarray = list(data)
     while len(bitarray) != len(polynomial) - 1:
-        for bit in range(len(polynomial)):
+        for (bit, _) in enumerate(polynomial):
             if polynomial[bit] == bitarray[bit]:
                 bitarray[bit] = "0"  # XOR calculation
             else:
