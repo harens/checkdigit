@@ -23,7 +23,7 @@ https://github.com/harens/checkdigit/wiki/💳-Luhn
 
 """
 
-from checkdigit._data import cleanse, convert
+from checkdigit._data import cleanse
 
 # WARNING: Data beginning with 0 must be as a string due to PEP 3127
 
@@ -39,21 +39,18 @@ def calculate(data: str) -> str:
 
     """
     data = cleanse(data)
-    position_counter = 1  # 1-based indexing
-    total_sum = 0
-    for item in data[::-1]:  # Reverses String
-        digit = int(item)
-        if position_counter % 2:  # If position number is odd with reversed string
-            add_value = digit * 2
-            if add_value > 9:
-                for number in str(add_value):  # Adds individual digits together
-                    total_sum += int(number)
-            else:
-                total_sum += add_value
-        else:
-            total_sum += digit
-        position_counter += 1
-    return convert(10 - (total_sum % 10), "luhn")
+    # Double every other digit, starting from the final digit backwards
+    # i.e. double 0th digit, 2nd, 4th, ...
+    double_digits = (
+        int(element) if index % 2 else int(element) * 2
+        for index, element in enumerate(data[::-1])
+    )
+    # For digits with more than one digit, sum the digits together
+    # The maximum is 9*2 = 18. This divmod method will work <100
+    sum_digits = sum(sum(divmod(i, 10)) for i in double_digits)
+    # Mod 10 returns 0-9 (not 10 or 11)
+    # Hence convert method not required (faster to use str)
+    return str((sum_digits * 9) % 10)
 
 
 def validate(data: str) -> bool:
