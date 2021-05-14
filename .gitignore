@@ -269,3 +269,5 @@ dmypy.json
 *.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/pycharm+all,python,macos,vscode
+
+docs/source/_autosummary/

@@ -78,6 +78,11 @@ def missing(data: str) -> str:
     Returns:
         str: The missing value that should've been where the question mark was
 
+    Examples:
+        >>> from seaport import gs1
+        >>> gs1.missing("?8945528")
+        "9"
+
     """
     data = cleanse(data)
     for poss_digit in range(10):  # Brute Force the 10 options
