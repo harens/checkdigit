@@ -13,13 +13,10 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-"""Parity Validation Functions.
+"""UPC Validation Functions.
 
 UPC-A codes are the main variant of Universal Product Codes.
 They contain 12 digits and are mainly used for product identification.
-
-For more information, please look at the wiki page for this module:
-https://github.com/harens/checkdigit/wiki/📦-UPC-A
 
 """
 

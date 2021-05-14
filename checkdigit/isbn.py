@@ -17,10 +17,7 @@
 
 ISBN codes are product identifiers used predominantly for books.
 
-For more information, please look at the wiki page for this module:
-https://github.com/harens/checkdigit/wiki/📖-ISBN
-
-Note that the ISBN-13 functions can also be used for EAN-13 and Bookland codes
+Note that the ISBN-13 functions can also be used for EAN-13 and Bookland codes.
 
 """
 

@@ -18,9 +18,6 @@
 
 The luhn algorithm has a variety of applications, including in credit cards and IMEI numbers.
 
-For more information, please look at the wiki page for this module:
-https://github.com/harens/checkdigit/wiki/💳-Luhn
-
 """
 
 from checkdigit._data import cleanse

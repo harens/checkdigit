@@ -17,9 +17,6 @@
 
 A parity bit is added to the end of a block of binary as a form of data validation.
 
-For more information, please look at the wiki page for this module:
-https://github.com/harens/checkdigit/wiki/1%EF%B8%8F⃣-Parity-Bits
-
 """
 
 from checkdigit._data import cleanse
