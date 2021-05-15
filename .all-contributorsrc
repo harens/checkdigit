@@ -11,6 +11,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "OtherBarry",
+      "name": "Charlie Wilson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6956537?v=4",
+      "profile": "https://github.com/OtherBarry",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "projectName": "checkdigit",
