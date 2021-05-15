@@ -178,7 +178,7 @@ Thanks goes to these wonderful people (`emoji key <https://allcontributors.org/d
     <table>
       <tr>
         <td align="center"><a href="https://zeevox.net"><img src="https://avatars.githubusercontent.com/u/8385172?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Timothy Langer</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=ZeevoX" title="Code">💻</a></td>
-        <td align="center"><a href="https://github.com/OtherBarry"><img src="https://avatars.githubusercontent.com/u/6956537?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Charlie Wilson</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=OtherBarry" title="Code">💻</a></td>
+        <td align="center"><a href="https://github.com/OtherBarry"><img src="https://avatars.githubusercontent.com/u/6956537?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Charlie Wilson</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=OtherBarry" title="Code">💻</a> <a href="https://github.com/harens/checkdigit/commits?author=OtherBarry" title="Tests">⚠️</a></td>
       </tr>
     </table>
 
