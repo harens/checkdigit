@@ -33,6 +33,21 @@ def calculate(data: str, even: bool = True) -> str:
 
     Returns:
         str: The parity bit of the data
+
+    Examples:
+        >>> from checkdigit import parity
+        >>> # Even parity
+        >>> parity.calculate("0110")
+        '0'
+        >>> parity.calculate("01101")
+        '1'
+
+        >>> # Odd parity
+        >>> parity.calculate("01101", False)
+        '0'
+        >>> parity.calculate("0", False)
+        '1'
+
     """
     data = cleanse(data)
     if (even and not data.count("1") % 2) or (not even and data.count("1") % 2):
@@ -49,6 +64,20 @@ def validate(data: str, even: bool = True) -> bool:
 
     Returns:
         bool: A boolean representing whether the data is valid or not
+
+    Examples:
+        >>> from checkdigit import parity
+        >>> # Even parity
+        >>> parity.validate("01100")
+        True
+        >>> parity.validate("01101")
+        False
+
+        >>> # Odd parity
+        >>> parity.validate("01101", False)
+        True
+        >>> parity.validate("01100", False)
+        False
     """
     data = cleanse(data)
     return calculate(data[:-1], even) == data[-1]
@@ -63,6 +92,20 @@ def missing(data: str, even: bool = True) -> str:
 
     Returns:
         str: The missing binary digit
+
+    Examples:
+        >>> from checkdigit import parity
+        >>> # Even parity
+        >>> parity.missing("01?00")
+        '1'
+        >>> parity.missing("01?100")
+        '0'
+
+        >>> # Odd parity
+        >>> parity.missing("01101?", False)
+        '0'
+        >>> parity.missing("010010?011", False)
+        '1'
     """
     # Same principle as check digit (just not necessarily on the end)
     return calculate(data.replace("?", ""), even)
