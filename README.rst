@@ -173,18 +173,19 @@ Thanks goes to these wonderful people (`emoji key <https://allcontributors.org/d
 .. raw:: html
 
     <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-    <!-- prettier-ignore-start -->
-    <!-- markdownlint-disable -->
-    <table>
-    <tr>
-        <td align="center"><a href="https://zeevox.net"><img src="https://avatars.githubusercontent.com/u/8385172?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Timothy Langer</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=ZeevoX" title="Code">💻</a></td>
-    </tr>
-    </table>
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://zeevox.net"><img src="https://avatars.githubusercontent.com/u/8385172?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Timothy Langer</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=ZeevoX" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/OtherBarry"><img src="https://avatars.githubusercontent.com/u/6956537?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Charlie Wilson</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=OtherBarry" title="Code">💻</a></td>
+  </tr>
+</table>
 
-    <!-- markdownlint-restore -->
-    <!-- prettier-ignore-end -->
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-    <!-- ALL-CONTRIBUTORS-LIST:END -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the `all-contributors <https://github.com/all-contributors/all-contributors>`_ specification. Contributions of any kind welcome!
 
