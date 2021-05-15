@@ -22,18 +22,15 @@ WARNING: THIS IS NOT A FAST IMPLEMENTATION OF CRC.
 
 If you want a fast implementation look elsewhere.
 
-For more information, please look at the wiki page for this module:
-https://add.wiki.page.here
 
 """
-
 from checkdigit._data import cleanse
 
 # WARNING: Data beginning with 0 must be as a string due to PEP 3127
 
 
 def calculate(data: str, polynomial: str, pad: str = "0") -> str:
-    """Adds a parity bit onto the end of a block of data.
+    """Adds a parity part onto the end of a block of data.
 
     Args:
         data: A string containing binary digits of any length
@@ -55,7 +52,7 @@ def calculate(data: str, polynomial: str, pad: str = "0") -> str:
         while bitarray[0] == "0" and len(bitarray) >= len(polynomial):
             bitarray.pop(0)
 
-    return cleanse("".join(bitarray))
+    return "".join(bitarray)
 
 
 def validate(data: str, polynomial: str) -> bool:
@@ -72,3 +69,34 @@ def validate(data: str, polynomial: str) -> bool:
     # the principle of CRCs is that when done again but with the check digit
     # appended if the data is fine it should all be 0s
     return "0" * (len(polynomial) - 1) == calculate(data, polynomial, "")
+
+
+def missing(data: str, polynomial: str) -> str:
+    """Calculates missing digits represented by a question mark.
+
+    Args:
+        data: A string containing a question mark representing a missing digit.
+        polynomial: What the polynomial that should be used is
+
+    Returns:
+        str: The missing binary digit
+    """
+    solutions = []
+    number = data.count("?")
+    if number == 0:
+        return "Invalid"  # if there are no ? to replace the algorithm will not work
+    permutations = 2 ** number  # number of different permutations that are possible
+    for permutation in range(permutations + 1):
+        tocheck = data
+        replacement = bin(permutation)[2:].zfill(
+            number
+        )  # gives us a nice binary number
+        for bit in replacement:
+            tocheck = tocheck.replace("?", bit, 1)  # only replaces one bit at a time
+        if validate(tocheck, polynomial):
+            solutions.append(replacement)
+            if len(solutions) == 2:
+                return "Invalid"
+    if len(solutions) == 1:
+        return solutions[0]
+    return "Invalid"
