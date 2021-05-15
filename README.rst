@@ -166,7 +166,7 @@ Each of the Python files follow the same general format:
 For similar data formats, the names can be adjusted accordingly (e.g. :code:`validate10` for ISBN-10 and :code:`validate13` for ISBN-13).
 
 Contributors ✨
---------------
+----------------
 
 Thanks goes to these wonderful people (`emoji key <https://allcontributors.org/docs/en/emoji-key>`_):
 
@@ -177,7 +177,7 @@ Thanks goes to these wonderful people (`emoji key <https://allcontributors.org/d
     <!-- markdownlint-disable -->
     <table>
       <tr>
-        <td align="center"><a href="https://zeevox.net"><img src="https://avatars.githubusercontent.com/u/8385172?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Timothy Langer</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=ZeevoX" title="Code">💻</a></td>
+        <td align="center"><a href="https://zeevox.net"><img src="https://avatars.githubusercontent.com/u/8385172?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Timothy Langer</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=ZeevoX" title="Tests">⚠️</a></td>
         <td align="center"><a href="https://github.com/OtherBarry"><img src="https://avatars.githubusercontent.com/u/6956537?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Charlie Wilson</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=OtherBarry" title="Code">💻</a> <a href="https://github.com/harens/checkdigit/commits?author=OtherBarry" title="Tests">⚠️</a></td>
       </tr>
     </table>
