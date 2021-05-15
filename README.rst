@@ -27,7 +27,7 @@
         <img src="https://repology.org/badge/vertical-allrepos/python:checkdigit.svg" alt="Packaging status" align="right">
     </a>
 
-**checkdigit** is a pure Python library built for identification numbers. 
+**checkdigit** is a pure Python library built for identification numbers.
 You want to validate a credit card number, or maybe even calculate a missing digit on an ISBN code?
 We've got you covered 😎.
 
@@ -91,10 +91,10 @@ As well as this, feel free to open an issue with any new suggestions or bug repo
 ::
 
     checkdigit
-    ├── scripts          
+    ├── scripts
     │   ├── format.sh
     │   └── tests.sh
-    ├── checkdigit      
+    ├── checkdigit
     │   ├── gs1.py
     │   ├── isbn.py
     │   ├── luhn.py
@@ -120,10 +120,10 @@ Each of the Python files follow the same general format:
 
     def calculate(data: str) -> str:
         """Determines check digit.
-        
+
         Args:
             data: A string of data missing a check digit
-        
+
         Returns:
             str: The single missing check digit (not the whole block of data)
         """
@@ -140,7 +140,7 @@ Each of the Python files follow the same general format:
 
         Args:
             data: A string representing a full block of data
-        
+
         Returns:
             bool: A boolean representing whether the data is valid or not
         """
@@ -164,6 +164,24 @@ Each of the Python files follow the same general format:
         return ...
 
 For similar data formats, the names can be adjusted accordingly (e.g. :code:`validate10` for ISBN-10 and :code:`validate13` for ISBN-13).
+
+Contributors ✨
+--------------
+
+Thanks goes to these wonderful people (`emoji key`_):
+
+.. _emoji key: https://allcontributors.org/docs/en/emoji-key
+
+.. raw:: html
+   <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+   <table>
+     # ...
+   </table>
+
+   <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+
+This project follows the `all-contributors <https://github.com/all-contributors/all-contributors>`_ specification. Contributions of any kind welcome!
 
 📙 License
 -----------
