@@ -21,6 +21,16 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "sapieninja",
+      "name": "Max Bowman",
+      "avatar_url": "https://avatars.githubusercontent.com/u/60101890?v=4",
+      "profile": "https://github.com/sapieninja",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "projectName": "checkdigit",
