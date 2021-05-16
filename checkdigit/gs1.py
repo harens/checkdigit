@@ -79,9 +79,13 @@ def missing(data: str) -> str:
         str: The missing value that should've been where the question mark was
 
     Examples:
-        >>> from seaport import gs1
+        >>> from checkdigit import gs1
         >>> gs1.missing("?8945528")
-        "9"
+        '9'
+        >>> gs1.missing("992802?035392")
+        '2'
+        >>> gs1.missing("084085752492131?31")
+        '7'
 
     """
     data = cleanse(data)
