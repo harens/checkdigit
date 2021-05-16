@@ -26,6 +26,7 @@ Test Function Format:
 
 from error404 import test
 
+import checkdigit.crc as crc
 import checkdigit.gs1 as gs1
 import checkdigit.isbn as isbn
 import checkdigit.luhn as luhn
@@ -227,3 +228,27 @@ test(gs1.missing("97702808926817?28"), "2")
 test(gs1.missing("084085752492131?31"), "7")
 test(gs1.missing("846684302750007275"), "Invalid")
 test(gs1.missing("?73686237383475059"), "0")
+
+# CRC generating correct check parts
+test(crc.calculate("1010", "1011"), "011")
+test(crc.calculate("010101", "1101"), "111")
+test(crc.calculate("1111011011", "1101001"), "010100")
+test(crc.calculate("100100011101", "111"), "11")
+test(crc.calculate("100110010100111101111101", "11010111101"), "0010001100")
+
+# CRC validating correct data + check
+test(crc.validate("1010101", "101"), True)
+test(crc.validate("1001100101001111011111010010001100", "11010111101"), True)
+
+# CRC failing incorrect data + check
+test(crc.validate("1000101", "101"), False)
+test(crc.validate("1001100101001111011111010010001110", "11010111101"), False)
+
+# CRC missing finding correct missing values
+test(crc.missing("10?110010100111?0?1111?10010?011?0", "11010111101"), "011000")
+test(crc.missing("?1111111101", "1101"), "1")
+
+# CRC missing returning invalid
+test(crc.missing("101101001", "11101"), "Invalid")
+test(crc.missing("?????????", "111"), "Invalid")
+test(crc.missing("?1111111001", "1101"), "Invalid")
