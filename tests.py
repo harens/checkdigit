@@ -246,7 +246,9 @@ test(crc.validate("1001100101001111011111010010001110", "11010111101"), False)
 
 # CRC missing finding correct missing values
 test(crc.missing("10?110010100111?0?1111?10010?011?0", "11010111101"), "011000")
+test(crc.missing("?1111111101", "1101"), "1")
 
-# CRC missing raising ValueError
+# CRC missing returning invalid
 test(crc.missing("101101001", "11101"), "Invalid")
 test(crc.missing("?????????", "111"), "Invalid")
+test(crc.missing("?1111111001", "1101"), "Invalid")

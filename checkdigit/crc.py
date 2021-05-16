@@ -86,7 +86,7 @@ def missing(data: str, polynomial: str) -> str:
     if number == 0:
         return "Invalid"  # if there are no ? to replace the algorithm will not work
     permutations = 2 ** number  # number of different permutations that are possible
-    for permutation in range(permutations + 1):
+    for permutation in range(permutations):
         tocheck = data
         replacement = bin(permutation)[2:].zfill(
             number
