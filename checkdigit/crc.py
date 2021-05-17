@@ -39,6 +39,13 @@ def calculate(data: str, polynomial: str, pad: str = "0") -> str:
 
     Returns:
         str: Check Value that should be appended to the stream
+
+    Examples:
+        >>> from checkdigit import crc
+        >>> crc.calculate("1010", "1011")
+        '011'
+        >>> crc.calculate("100110010100111101111101", "11010111101")
+        '0010001100'
     """
     data = cleanse(data)
     data += pad * (len(polynomial) - 1)
@@ -64,6 +71,13 @@ def validate(data: str, polynomial: str) -> bool:
 
     Returns:
         bool: A boolean representing whether the data is valid or not
+
+    Examples:
+        >>> from checkdigit import crc
+        >>> crc.validate("1010101", "101")
+        True
+        >>> crc.validate("1000101", "101")
+        False
     """
     data = cleanse(data)
     # the principle of CRCs is that when done again but with the check digit
@@ -80,6 +94,22 @@ def missing(data: str, polynomial: str) -> str:
 
     Returns:
         str: The missing binary digit
+
+    Examples:
+        >>> from checkdigit import crc
+        >>> crc.missing("?1111111101", "1101")
+        '1'
+        >>> crc.missing("10?110010100111?0?1111?10010?011?0", "11010111101")
+        '011000'
+
+        >>> from checkdigit import crc
+        >>> # If there's more than one possible option
+        >>> crc.missing("101101001", "11101")
+        'Invalid'
+        >>> crc.missing("?????????", "111")
+        'Invalid'
+        >>> crc.missing("?1111111001", "1101")
+        'Invalid'
     """
     solutions = []
     number = data.count("?")

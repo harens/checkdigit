@@ -34,6 +34,13 @@ def calculate10(data: str) -> str:
 
     Returns:
         str: The check digit that was missing
+
+    Examples:
+        >>> from checkdigit import isbn
+        >>> isbn.calculate10("006196436")
+        '0'
+        >>> isbn.calculate10("043942089")
+        'X'
     """
     data = cleanse(data)
     # Multiply first digit by 10, second by 9, ... and take the sum
@@ -53,6 +60,14 @@ def validate10(data: str) -> bool:
         bool: A boolean representing whether the
             check digit validates the data or not
 
+    Examples:
+        >>> from checkdigit import isbn
+        >>> isbn.validate10("1-56619-909-3")
+        True
+        >>> isbn.validate10("0198526636")
+        True
+        >>> isbn.validate10("423423")
+        False
     """
     data = cleanse(data)
     return calculate10(data[:-1]) == data[-1]
@@ -67,6 +82,13 @@ def calculate13(data: str, barcode: str = "isbn") -> str:
 
     Returns:
         str: The check digit that was missing
+
+    Examples:
+        >>> from checkdigit import isbn
+        >>> isbn.calculate13("978-1-86197-876")
+        '9'
+        >>> isbn.calculate13("012345678912")
+        '8'
     """
     data = cleanse(data)
     # ISBN weights is 1 for odd positions and 3 for even
@@ -87,6 +109,15 @@ def validate13(data: str) -> bool:
     Returns:
         bool: A boolean representing whether the check digit validates the data
 
+    Examples:
+        >>> from checkdigit import isbn
+        >>> isbn.validate13("978-1-56619-909-4")
+        True
+        >>> isbn.validate13("0123456789128")
+        True
+        >>> isbn.validate13("1234")
+        False
+
     """
     data = cleanse(data)
     return calculate13(data[:-1]) == data[-1]
@@ -102,6 +133,14 @@ def missing(data: str) -> str:
     Returns:
         str: The missing value that should've been where the question mark was
 
+    Examples:
+        >>> from checkdigit import isbn
+        >>> isbn.missing("15688?111X")
+        '1'
+        >>> isbn.missing("978186197876?")
+        '9'
+        >>> isbn.missing("023456789128")
+        'Invalid'
     """
     data = cleanse(data)
     data_length = len(data)  # ISBN-10 or 13

@@ -34,6 +34,13 @@ def calculate(data: str) -> str:
     Returns:
         str: A string representing the missing check digit
 
+    Examples:
+        >>> from checkdigit import luhn
+        >>> luhn.calculate("53251309870224")
+        '3'
+        >>> luhn.calculate("950123440000")
+        '8'
+
     """
     data = cleanse(data)
     # Double every other digit, starting from the final digit backwards
@@ -59,6 +66,17 @@ def validate(data: str) -> bool:
     Returns:
         bool: A boolean representing whether the check digit validates the data or not
 
+    Examples:
+        >>> from checkdigit import luhn
+        >>> luhn.validate("541756116585277")
+        True
+        >>> luhn.validate("79927398713")
+        True
+        >>> luhn.validate("49927398717")
+        False
+        >>> luhn.validate("1234567812345678")
+        False
+
     """
     data = cleanse(data)
     return (
@@ -75,6 +93,15 @@ def missing(data: str) -> str:
 
     Returns:
         str: The missing value that should've been where the question mark was
+
+    Examples:
+        >>> from checkdigit import luhn
+        >>> luhn.missing("54175611658527?")
+        '7'
+        >>> luhn.missing("515853022?76176")
+        '1'
+        >>> luhn.missing("78369216316")
+        'Invalid'
 
     """
     data = cleanse(data)

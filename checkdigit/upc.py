@@ -39,6 +39,13 @@ def calculate(data: str) -> str:
 
     Returns:
         str: The missing check digit
+
+    Examples:
+        >>> from checkdigit import upc
+        >>> upc.calculate("17593487596")
+        '0'
+        >>> upc.calculate("73799324006")
+        '8'
     """
     return isbn.calculate13(data, "upc")
 
@@ -51,5 +58,12 @@ def validate(data: str) -> bool:
 
     Returns:
         bool: A boolean representing whether the check digit validates the data or not
+
+    Examples:
+        >>> from checkdigit import upc
+        >>> upc.validate("672792398018")
+        True
+        >>> upc.validate("672792398017")
+        False
     """
     return calculate(data[:-1]) == data[-1]

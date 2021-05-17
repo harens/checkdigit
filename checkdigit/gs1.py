@@ -86,6 +86,8 @@ def missing(data: str) -> str:
         '2'
         >>> gs1.missing("084085752492131?31")
         '7'
+        >>> gs1.missing("846684302750007275")
+        'Invalid'
 
     """
     data = cleanse(data)
