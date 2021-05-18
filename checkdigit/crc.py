@@ -101,13 +101,7 @@ def missing(data: str, polynomial: str) -> str:
         '1'
         >>> crc.missing("10?110010100111?0?1111?10010?011?0", "11010111101")
         '011000'
-
-        >>> from checkdigit import crc
         >>> # If there's more than one possible option
-        >>> crc.missing("101101001", "11101")
-        'Invalid'
-        >>> crc.missing("?????????", "111")
-        'Invalid'
         >>> crc.missing("?1111111001", "1101")
         'Invalid'
     """
