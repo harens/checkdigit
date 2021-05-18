@@ -1,6 +1,8 @@
 version = 1
 
-test_patterns = ["tests.py"]
+# Not using test_patterns because it still marks
+# self in pytest classes as errors
+exclude_patterns = ["tests/**"]
 
 [[analyzers]]
 name = "python"
