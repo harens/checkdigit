@@ -1,10 +1,10 @@
 [tool.poetry]
 name = "checkdigit"
-version = "0.1.2"
+version = "0.2.0"
 description = "A check digit library for data validation"
 authors = ["harens <harensdeveloper@gmail.com>"]
 maintainers = ["harens <harensdeveloper@gmail.com>"]
-readme = "README.rst"
+readme = "PYPIREADME.rst"
 license = "GPL-3.0-or-later"
 include = ["checkdigit/py.typed"]
 keywords = ["Check Digits", "Validation", "ISBN"]
@@ -15,9 +15,9 @@ classifiers = [
   'Typing :: Typed'
 ]
 
-homepage = "https://github.com/harens/checkdigit"
+homepage = "https://checkdigit.readthedocs.io"
 repository = "https://github.com/harens/checkdigit"
-documentation = "https://github.com/harens/checkdigit/wiki"
+documentation = "https://checkdigit.readthedocs.io"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/harens/checkdigit/issues"
@@ -39,6 +39,7 @@ Sphinx = "^4.0.1"
 sphinx-autobuild = "^2021.3.14"
 pytest = "^6.2.4"
 pytest-cov = "^2.12.0"
+readme-renderer = "^29.0"
 
 [tool.coverage.run]
 branch = true

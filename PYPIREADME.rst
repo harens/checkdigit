@@ -1,31 +1,29 @@
-.. raw:: html
+.. image:: https://raw.githubusercontent.com/harens/checkdigit/master/art/logo.png
+   :alt: checkdigit logo
+   :align: center
 
-    <p align="center">
-        <a href="#readme">
-            <img alt="checkdigit logo" src="https://raw.githubusercontent.com/harens/checkdigit/master/art/logo.png">
-            <!-- README inspired by loguru -->
-        </a>
-    </p>
-    <p align="center">
-        <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/harens/checkdigit/Tests?logo=github&style=flat-square">
-        <img alt="Codecov" src="https://img.shields.io/codecov/c/github/harens/checkdigit?logo=codecov&style=flat-square">
-        <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/checkdigit?logo=python&logoColor=white&style=flat-square">
-        <img alt="CodeFactor Grade" src="https://img.shields.io/codefactor/grade/github/harens/checkdigit?logo=codefactor&style=flat-square">
-        <img alt="LGTM Grade" src="https://img.shields.io/lgtm/grade/python/github/harens/checkdigit?logo=lgtm&style=flat-square">
-    </p>
-    <p align="center">
-        <a href="#readme">
-            <img alt="checkdigit example" src="https://raw.githubusercontent.com/harens/checkdigit/master/art/demo.gif">
-        </a>
-    </p>
+|
 
-=========
+.. image:: https://img.shields.io/github/workflow/status/harens/checkdigit/Tests?logo=github&style=flat-square
+   :alt: GitHub Tests status
 
-.. raw:: html
+.. image:: https://img.shields.io/codecov/c/github/harens/checkdigit?logo=codecov&style=flat-square
+   :alt: Codecov
 
-    <a href="https://repology.org/project/python:checkdigit/versions">
-        <img src="https://repology.org/badge/vertical-allrepos/python:checkdigit.svg" alt="Packaging status" align="right">
-    </a>
+.. image:: https://img.shields.io/pypi/dm/checkdigit?logo=python&logoColor=white&style=flat-square
+   :alt: PyPi - Downloads
+
+.. image:: https://img.shields.io/codefactor/grade/github/harens/checkdigit?logo=codefactor&style=flat-square
+   :alt: CodeFactor Grade
+
+.. image:: https://img.shields.io/lgtm/grade/python/github/harens/checkdigit?logo=lgtm&style=flat-square
+   :alt: LGTM Grade
+
+|
+
+.. image:: https://raw.githubusercontent.com/harens/checkdigit/master/art/demo.gif
+   :alt: checkdigit example gif
+   :align: center
 
 **checkdigit** is a pure Python library built for identification numbers.
 You want to validate a credit card number, or maybe even calculate a missing digit on an ISBN code?
@@ -191,31 +189,6 @@ Each of the Python files follow the same general format:
         return ...
 
 For similar data formats, the names can be adjusted accordingly (e.g. :code:`validate10` for ISBN-10 and :code:`validate13` for ISBN-13).
-
-Contributors ✨
-----------------
-
-Thanks goes to these wonderful people (`emoji key <https://allcontributors.org/docs/en/emoji-key>`_):
-
-.. raw:: html
-
-    <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-    <!-- prettier-ignore-start -->
-    <!-- markdownlint-disable -->
-    <table>
-      <tr>
-        <td align="center"><a href="https://zeevox.net"><img src="https://avatars.githubusercontent.com/u/8385172?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Timothy Langer</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=ZeevoX" title="Tests">⚠️</a> <a href="https://github.com/harens/checkdigit/commits?author=ZeevoX" title="Documentation">📖</a></td>
-        <td align="center"><a href="https://github.com/OtherBarry"><img src="https://avatars.githubusercontent.com/u/6956537?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Charlie Wilson</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=OtherBarry" title="Code">💻</a> <a href="https://github.com/harens/checkdigit/commits?author=OtherBarry" title="Tests">⚠️</a></td>
-        <td align="center"><a href="https://github.com/sapieninja"><img src="https://avatars.githubusercontent.com/u/60101890?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Max Bowman</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=sapieninja" title="Code">💻</a> <a href="https://github.com/harens/checkdigit/commits?author=sapieninja" title="Tests">⚠️</a></td>
-      </tr>
-    </table>
-
-    <!-- markdownlint-restore -->
-    <!-- prettier-ignore-end -->
-
-    <!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the `all-contributors <https://github.com/all-contributors/all-contributors>`_ specification. Contributions of any kind welcome!
 
 📙 License
 -----------
