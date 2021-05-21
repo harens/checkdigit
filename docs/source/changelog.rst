@@ -7,7 +7,7 @@ WIP
 📚 Improved Documentation
 ---------------------------
 
-- Added changelog page.
+- Added changelog and contributing pages.
 
 0.2.0 (2021-05-21)
 ===================
