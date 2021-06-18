@@ -13,21 +13,25 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-"""GS1 Standards for Identification.
+"""GS1 Standards.
 
 This includes support for the following:
 
-- GDTI
+- GSIN
 - GLN
 - GRAI
+- GTIN-8/12/13/14
+    - EAN-8
+    - EAN-13
+    - UPC-A
+    - UPC-E
+- SSCC
 - etc. (all fixed length numeric GS1 data structures with a check digit)
 """
 
 import math
 
 from checkdigit._data import cleanse, convert
-
-# WARNING: Data beginning with 0 must be as a string due to PEP 3127
 
 
 def calculate(data: str) -> str:
@@ -51,15 +55,13 @@ def calculate(data: str) -> str:
     """
     data = cleanse(data)
     data = data[::-1]  # Reverse the barcode, as last digit is always multiplied by 3
-    total_sum = 0
-    for index, value in enumerate(data):
-        if index % 2 == 0:
-            total_sum += int(value) * 3
-        else:
-            total_sum += int(value)
-    next_multiple_of_ten = int(math.ceil(total_sum / 10.0)) * 10
-    check_digit = next_multiple_of_ten - total_sum
-    return convert(check_digit)
+    # Follows order 3, 1, 3, etc.
+    # Use ceil to ensure all digits of data are matched with a weight (round up division)
+    weights = (3, 1) * math.ceil(len(data) / 2)
+    # Multiply each digit by its weight
+    total_sum = sum(int(digit) * weight for digit, weight in zip(data, weights))
+    # Return final check digit and type of barcode
+    return convert(10 - (total_sum % 10), False)
 
 
 def validate(data: str) -> bool:
@@ -82,7 +84,7 @@ def validate(data: str) -> bool:
         >>> gs1.validate("961552634342856982")
         True
     """
-    data = cleanse(data)
+    # Data is cleansed by the calculate function
     return calculate(data[:-1]) == data[-1]
 
 
