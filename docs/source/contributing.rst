@@ -64,8 +64,7 @@ First, fork the `GitHub project <https://github.com/harens/checkdigit>`_ to your
     │   └── etc.
     └── tests
 
-Each new format goes into a separate file which is named accordingly. Similar formats (e.g. ISBN-10 and ISBN-13)
-should go in the same file.
+Each new format should go into a separate file which is named accordingly.
 
 Before submitting any new changes, please run the :code:`format.sh` and :code:`tests.sh` scripts beforehand. Thank you :)
 
@@ -82,6 +81,8 @@ We can use `sphinx-autobuild <https://github.com/executablebooks/sphinx-autobuil
 
 🎪 File structure
 ------------------
+
+Similar data formats should use the same function (e.g. ISBN-10 and ISBN-13 functions determine the length before calculations).
 
 Each of the Python files follow the same general format:
 
@@ -111,7 +112,8 @@ Each of the Python files follow the same general format:
         # e.g. spaces, hyphens, etc.
         data = cleanse(data)
 
-        # Deals with 10 or 11 being the possible check digit
+        # convert() deals with 10 or 11 being the possible check digit
+        # N.B. This might not always be necessary if 10/11 aren't options (e.g. binary parity)
         return convert(...)
 
 
@@ -154,5 +156,3 @@ Each of the Python files follow the same general format:
         data = cleanse(data)
 
         return ...
-
-For similar data formats, the names can be adjusted accordingly (e.g. :code:`validate10` for ISBN-10 and :code:`validate13` for ISBN-13).
