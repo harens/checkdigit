@@ -41,6 +41,13 @@ def calculate(data: str) -> str:
 
     Returns:
         str: The check digit that was missing
+
+    Examples:
+        >>> from checkdigit import gs1
+        >>> gs1.calculate("00199999980000110")
+        '7'
+        >>> gs1.calculate("67368623738347505")
+        '1'
     """
     data = cleanse(data)
     data = data[::-1]  # Reverse the barcode, as last digit is always multiplied by 3
@@ -68,6 +75,12 @@ def validate(data: str) -> bool:
         bool: A boolean representing whether the
             check digit validates the data or not
 
+    Examples:
+        >>> from checkdigit import gs1
+        >>> gs1.validate("224245438987081447")
+        False
+        >>> gs1.validate("961552634342856982")
+        True
     """
     data = cleanse(data)
     return calculate(data[:-1]) == data[-1]

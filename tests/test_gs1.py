@@ -33,7 +33,6 @@ def test_calculate() -> None:
     assert gs1.calculate("9770280892681722") == "8"
     assert gs1.calculate("08408575249213173") == "1"
     assert gs1.calculate("84668430275000727") == "9"
-    assert gs1.calculate("67368623738347505") == "1"
 
 
 def test_validate() -> None:
@@ -49,7 +48,6 @@ def test_validate() -> None:
     assert gs1.validate("25020757663329968")
     assert gs1.validate("82648071988131734")
     assert gs1.validate("321609478518371973")
-    assert gs1.validate("961552634342856982")
     assert not gs1.validate("97673485")
     assert not gs1.validate("52186777")
     assert not gs1.validate("548785535769")
@@ -61,7 +59,6 @@ def test_validate() -> None:
     assert not gs1.validate("83494889067993460")
     assert not gs1.validate("93976703183564468")
     assert not gs1.validate("501469249184000304")
-    assert not gs1.validate("224245438987081447")
 
 
 def test_missing() -> None:

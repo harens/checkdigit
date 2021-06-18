@@ -15,6 +15,12 @@ WIP
 ---------------------------
 
 - Added changelog and contributing pages.
+- On the main README, the individual GS1 and GTIN formats that are supported are noted (e.g. ISBN-10, GDTI, etc.)
+
+🎭 Behind the Scenes
+---------------------
+
+- The build tests were separated from the linting tests. (`#66 <https://github.com/harens/checkdigit/issues/66>`_)
 
 0.2.0 (2021-05-21)
 ===================
