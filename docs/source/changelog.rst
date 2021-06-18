@@ -7,9 +7,13 @@ WIP
 🔨 Compatibility Broken
 -------------------------
 
-- The ISBN/UPC/EAN functions have now been merged together into one complete GTIN function.
-  However, it's necessary to specify whether or not the code is ISBN-based since it has different weightings.
+- A single ISBN function is now available, rather than the two separate ones for ISBN-10 and ISBN-13.
   (`#19 <https://github.com/harens/checkdigit/issues/19>`_ `#63 <https://github.com/harens/checkdigit/issues/63>`_)
+
+⚡️ Features
+------------
+
+- Improved support for GS1-based codes, such as EAN-8 and UPC-E. (`#19 <https://github.com/harens/checkdigit/issues/19>`_)
 
 📚 Improved Documentation
 ---------------------------
