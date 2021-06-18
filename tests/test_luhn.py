@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-import checkdigit.luhn as luhn
+from checkdigit import luhn
 
 
 def test_calculate() -> None:
