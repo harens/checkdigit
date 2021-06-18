@@ -13,31 +13,31 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-from checkdigit import gtin
+from checkdigit import gs1
 
 
 def test_calculate() -> None:
     """Determines Check Digit."""
-    assert gtin.calculate("17593487596") == "0"
-    assert gtin.calculate("64161295255") == "6"
-    assert gtin.calculate("69861509878") == "1"
-    assert gtin.calculate("73799324006") == "8"
-    assert gtin.calculate("69645331139") == "0"
+    assert gs1.calculate("17593487596") == "0"
+    assert gs1.calculate("64161295255") == "6"
+    assert gs1.calculate("69861509878") == "1"
+    assert gs1.calculate("73799324006") == "8"
+    assert gs1.calculate("69645331139") == "0"
 
 
 class TestValidate:
     def test_positive(self) -> None:
         """The UPC code is valid."""
-        assert gtin.validate("672792398018")
-        assert gtin.validate("641612952556")
-        assert gtin.validate("698615098781")
-        assert gtin.validate("737993240068")
-        assert gtin.validate("696453311390")
+        assert gs1.validate("672792398018")
+        assert gs1.validate("641612952556")
+        assert gs1.validate("698615098781")
+        assert gs1.validate("737993240068")
+        assert gs1.validate("696453311390")
 
     def test_negative(self) -> None:
         """The UPC code is invalid."""
-        assert not gtin.validate("672792398017")
-        assert not gtin.validate("641612952555")
-        assert not gtin.validate("698615098782")
-        assert not gtin.validate("737993240069")
-        assert not gtin.validate("696453311393")
+        assert not gs1.validate("672792398017")
+        assert not gs1.validate("641612952555")
+        assert not gs1.validate("698615098782")
+        assert not gs1.validate("737993240069")
+        assert not gs1.validate("696453311393")

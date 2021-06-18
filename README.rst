@@ -63,17 +63,14 @@ Installation
 * `Even/Odd binary parity <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.parity.html#module-checkdigit.parity>`_
 * `CRC <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.crc.html#module-checkdigit.crc>`_
   (credit to `@sapieninja <https://github.com/sapieninja>`_)
-* `GS1 Identity Standards <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.gs1.html#module-checkdigit.gs1>`_ (credit to `@OtherBarry <https://github.com/OtherBarry>`_)
+* `GS1 Standards <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.gs1.html#module-checkdigit.gs1>`_ (credit to `@OtherBarry <https://github.com/OtherBarry>`_)
+    * EAN-8/13
     * GDTI
     * GLN
-    * GRAI
+    * SSCC
+    * UPC-A/E
     * etc. *(all fixed length numeric GS1 data structures with a check digit)*
-* `GTIN <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.gtin.html#module-checkdigit.gtin>`_
-    * Bookland
-    * EAN-13
-    * ISBN-10
-    * ISBN-13
-    * UPC-A
+* `ISBN-10/13 <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.isbn.html#module-checkdigit.isbn>`_
 * `Luhn <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.luhn.html#module-checkdigit.luhn>`_
 
 For each of these formats, we provide functions to validate them and calculate missing digits.
