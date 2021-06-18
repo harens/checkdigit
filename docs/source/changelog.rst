@@ -4,6 +4,13 @@ Changelog
 WIP
 ====
 
+🔨 Compatibility Broken
+-------------------------
+
+- The ISBN/UPC/EAN functions have now been merged together into one complete GTIN function.
+  However, it's necessary to specify whether or not the code is ISBN-based since it has different weightings.
+  (`#19 <https://github.com/harens/checkdigit/issues/19>`_ `#63 <https://github.com/harens/checkdigit/issues/63>`_)
+
 📚 Improved Documentation
 ---------------------------
 
@@ -15,7 +22,7 @@ WIP
 ⚡️ Features
 ------------
 
-- CRC Format Added (Thanks `@sapieninja! <https://github.com/sapieninja>`_).
+- CRC Format Added (Thanks `@sapieninja! <https://github.com/sapieninja>`_). (`#42 <https://github.com/harens/checkdigit/pull/42>`_)
 
 📚 Improved Documentation
 ---------------------------
@@ -28,7 +35,7 @@ WIP
 ---------------------
 
 - Transition tests from `error404 <https://github.com/harens/error404>`_ to `pytest <https://pytest.org/>`_.
-- Move from GitHub Wiki to RTD (where you're currently reading this).
+- Move from GitHub Wiki to RTD (where you're currently reading this). (`#41 <https://github.com/harens/checkdigit/issues/41>`_)
 - Refactored ISBN and Luhn code.
 
 0.1.2 (2021-05-04)
@@ -37,7 +44,7 @@ WIP
 ⚡️ Features
 ------------
 
-- GS1 Format Added (Thanks `@OtherBarry! <https://github.com/OtherBarry>`_).
+- GS1 Format Added (Thanks `@OtherBarry! <https://github.com/OtherBarry>`_). (`#38 <https://github.com/harens/checkdigit/pull/38>`_)
 
 0.1.1 (2020-12-04)
 ===================

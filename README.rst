@@ -60,15 +60,21 @@ Installation
 ✅ Supported Formats
 ---------------------
 
-* Even and odd binary parity
-* Bookland
-* CRC (credit to `@sapieninja <https://github.com/sapieninja>`_)
-* EAN-13
-* GS1 (credit to `@OtherBarry <https://github.com/OtherBarry>`_)
-* ISBN-10
-* ISBN-13
-* Luhn
-* UPC-A
+* `Even/Odd binary parity <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.parity.html#module-checkdigit.parity>`_
+* `CRC <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.crc.html#module-checkdigit.crc>`_
+  (credit to `@sapieninja <https://github.com/sapieninja>`_)
+* `GS1 Identity Standards <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.gs1.html#module-checkdigit.gs1>`_ (credit to `@OtherBarry <https://github.com/OtherBarry>`_)
+    * GDTI
+    * GLN
+    * GRAI
+    * etc. *(all fixed length numeric GS1 data structures with a check digit)*
+* `GTIN <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.gtin.html#module-checkdigit.gtin>`_
+    * Bookland
+    * EAN-13
+    * ISBN-10
+    * ISBN-13
+    * UPC-A
+* `Luhn <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.luhn.html#module-checkdigit.luhn>`_
 
 For each of these formats, we provide functions to validate them and calculate missing digits.
 
@@ -86,7 +92,7 @@ Any change, big or small, that you think can help improve this project is more t
 
 As well as this, feel free to open an issue with any new suggestions or bug reports. Every contribution is appreciated.
 
-To find out more, please read our `contributing guidelines <https://checkdigit.readthedocs.io/en/latest/contributing.html>`_. Thank you!
+To find out more, please read our `contributing page <https://checkdigit.readthedocs.io/en/latest/contributing.html>`_. Thank you!
 
 📙 License
 -----------
