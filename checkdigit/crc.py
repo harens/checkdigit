@@ -26,8 +26,6 @@ If you want a fast implementation look elsewhere.
 """
 from checkdigit._data import cleanse
 
-# WARNING: Data beginning with 0 must be as a string due to PEP 3127
-
 
 def calculate(data: str, polynomial: str, pad: str = "0") -> str:
     """Adds a parity part onto the end of a block of data.

@@ -22,8 +22,6 @@ The luhn algorithm has a variety of applications, including in credit cards and 
 
 from checkdigit._data import cleanse
 
-# WARNING: Data beginning with 0 must be as a string due to PEP 3127
-
 
 def calculate(data: str) -> str:
     """Calculates the luhn check digit.

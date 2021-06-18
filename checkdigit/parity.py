@@ -21,8 +21,6 @@ A parity bit is added to the end of a block of binary as a form of data validati
 
 from checkdigit._data import cleanse
 
-# WARNING: Data beginning with 0 must be as a string due to PEP 3127
-
 
 def calculate(data: str, even: bool = True) -> str:
     """Adds a parity bit onto the end of a block of data.
