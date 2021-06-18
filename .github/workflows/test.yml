@@ -1,6 +1,9 @@
 # Based off https://github.com/Electrostatics/mmcif_pdbx/blob/master/.github/workflows/python-package.yml
 # Also credit to https://github.com/commitizen-tools/commitizen/tree/master/.github/workflows
 
+# Coverage only required for pytest
+# We don't need these checks in both python versions
+
 name: Tests
 on: [push, pull_request]
 
@@ -11,27 +14,35 @@ jobs:
     strategy:
       matrix:
         python-version: [3.6, 3.7, 3.8, 3.9]
+        test-file: [dependencies, formatting, pytest, type_checking]
+        exclude:  # See https://github.community/t/improve-matrix-exclusion-feature/16340
+          - {test-file: dependencies, python-version: 3.6}
+          - {test-file: dependencies, python-version: 3.7}
+          - {test-file: dependencies, python-version: 3.8}
+          - {test-file: formatting, python-version: 3.6}
+          - {test-file: formatting, python-version: 3.7}
+          - {test-file: formatting, python-version: 3.8}
     steps:
-    - uses: actions/checkout@v1
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        brew install shellcheck
-        python -m pip install -U pip poetry
-        poetry --version
-        poetry install
-    - name: ShellCheck
-      run: |
-        shellcheck scripts/*.sh
-    - name: Run Tests
-      run: |
-        bash ./scripts/tests.sh
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1.1.1
-      with:
-        file: ./coverage.xml
-        flags: unittests
-        fail_ci_if_error: true
+      - uses: actions/checkout@v1
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          brew install shellcheck
+          python -m pip install -U pip poetry
+          poetry --version
+          poetry install
+      - name: ShellCheck
+        run: |
+          shellcheck scripts/*.sh
+      - name: Test ${{ matrix.test-file }}
+        run: bash ./scripts/tests/${{ matrix.test-file }}.sh
+      - name: Upload coverage to Codecov
+        if: matrix.test-file == 'pytest'
+        uses: codecov/codecov-action@v1.1.1
+        with:
+          file: ./coverage.xml
+          flags: unittests
+          fail_ci_if_error: true
