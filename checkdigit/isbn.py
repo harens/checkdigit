@@ -20,8 +20,6 @@ Support is provided for both ISBN-10 and ISBN-13.
 
 """
 
-import math
-
 from checkdigit._data import cleanse, convert
 
 
@@ -55,8 +53,8 @@ def calculate(data: str) -> str:
     # elif not required since return above (and makes pylint happy)
     if len(data) == 12:
         # ISBN weights is 1 for odd positions and 3 for even
-        # The opposite is true for EAN/UPC
-        weights = (1, 3) * math.ceil(len(data) / 2)
+        # Since there are 12 digits, multiply weights by 6
+        weights = (1, 3) * 6
         # Multiply each digit by its weight
         total_sum = sum(int(digit) * weight for digit, weight in zip(data, weights))
         # Return final check digit and type of barcode
