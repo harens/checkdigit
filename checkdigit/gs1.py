@@ -13,7 +13,15 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-"""GS1 Validation Functions."""
+"""GS1 Standards for Identification.
+
+This includes support for the following:
+
+- GDTI
+- GLN
+- GRAI
+- etc. (all fixed length numeric GS1 data structures with a check digit)
+"""
 
 import math
 
@@ -44,7 +52,7 @@ def calculate(data: str) -> str:
             total_sum += int(value)
     next_multiple_of_ten = int(math.ceil(total_sum / 10.0)) * 10
     check_digit = next_multiple_of_ten - total_sum
-    return convert(check_digit, "gs1")
+    return convert(check_digit)
 
 
 def validate(data: str) -> bool:
