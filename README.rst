@@ -7,11 +7,21 @@
         </a>
     </p>
     <p align="center">
-        <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/harens/checkdigit/Tests?logo=github&style=flat-square">
-        <img alt="Codecov" src="https://img.shields.io/codecov/c/github/harens/checkdigit?logo=codecov&style=flat-square">
-        <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/checkdigit?logo=python&logoColor=white&style=flat-square">
-        <img alt="CodeFactor Grade" src="https://img.shields.io/codefactor/grade/github/harens/checkdigit?logo=codefactor&style=flat-square">
-        <img alt="LGTM Grade" src="https://img.shields.io/lgtm/grade/python/github/harens/checkdigit?logo=lgtm&style=flat-square">
+        <a href="https://github.com/harens/checkdigit/actions">
+            <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/harens/checkdigit/Tests?logo=github&style=flat-square">
+        </a>
+        <a href="https://app.codecov.io/gh/harens/checkdigit">
+            <img alt="Codecov" src="https://img.shields.io/codecov/c/github/harens/checkdigit?logo=codecov&style=flat-square">
+        </a>
+        <a href="https://pepy.tech/project/checkdigit">
+            <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/checkdigit?logo=python&logoColor=white&style=flat-square">
+        </a>
+        <a href="https://www.codefactor.io/repository/github/harens/checkdigit/">
+            <img alt="CodeFactor Grade" src="https://img.shields.io/codefactor/grade/github/harens/checkdigit?logo=codefactor&style=flat-square">
+        </a>
+        <a href="https://lgtm.com/projects/g/harens/checkdigit/">
+            <img alt="LGTM Grade" src="https://img.shields.io/lgtm/grade/python/github/harens/checkdigit?logo=lgtm&style=flat-square">
+        </a>
     </p>
     <p align="center">
         <a href="#readme">
