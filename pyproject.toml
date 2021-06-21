@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "checkdigit"
-version = "0.2.0"
+version = "0.3.0"
 description = "A check digit library for data validation"
 authors = ["harens <harensdeveloper@gmail.com>"]
 maintainers = ["harens <harensdeveloper@gmail.com>"]
 readme = "PYPIREADME.rst"
 license = "GPL-3.0-or-later"
 include = ["checkdigit/py.typed"]
-keywords = ["Check Digits", "Validation", "ISBN"]
+keywords = ["Check Digits", "Validation", "ISBN", "GS1", "Luhn"]
 classifiers = [
   "Natural Language :: English",
   "Operating System :: OS Independent",
@@ -15,9 +15,9 @@ classifiers = [
   'Typing :: Typed'
 ]
 
-homepage = "https://checkdigit.readthedocs.io"
+homepage = "https://checkdigit.rtfd.io"
 repository = "https://github.com/harens/checkdigit"
-documentation = "https://checkdigit.readthedocs.io"
+documentation = "https://checkdigit.rtfd.io"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/harens/checkdigit/issues"
