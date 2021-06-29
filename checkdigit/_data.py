@@ -16,8 +16,11 @@
 """Data cleansing.
 
 This module contains functions that help to format data so that it can be interpreted easier.
-
+It also constants to deal with type hints in different python versions.
 """
+
+import sys
+from typing import Any
 
 
 def cleanse(data: str) -> str:
@@ -35,3 +38,20 @@ def convert(digit: int, isbn: bool = True) -> str:
     if digit == 10:
         return "X" if isbn else "0"
     return "0" if digit == 11 else str(digit)
+
+
+# Deals with typing module being depreciated
+PYTHON_AT_LEAST_3_9 = sys.version_info >= (3, 9)
+
+# Use typing module below python 3.9
+# Initialised first with Any to make mypy happy
+TupleType: Any = None
+
+# Don't count code coverage since different python versions
+# won't run different parts of code
+if PYTHON_AT_LEAST_3_9:  # pragma: no cover
+    TupleType = tuple
+else:  # pragma: no cover
+    from typing import Tuple
+
+    TupleType = Tuple

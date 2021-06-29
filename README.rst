@@ -82,6 +82,7 @@ Installation
     * etc. *(all fixed length numeric GS1 data structures with a check digit)*
 * `ISBN-10/13 <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.isbn.html#module-checkdigit.isbn>`_
 * `Luhn <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.luhn.html#module-checkdigit.luhn>`_
+* `Verhoeff <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.verhoeff.html#module-checkdigit.verhoeff>`_
 
 For each of these formats, we provide functions to validate them and calculate missing digits.
 

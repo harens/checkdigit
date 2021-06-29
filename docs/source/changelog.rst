@@ -1,6 +1,14 @@
 Changelog
 **********
 
+WIP
+===
+
+⚡️ Features
+------------
+
+- Added support for the Verhoeff algorithm.
+
 0.3.0 (2021-06-21)
 ===================
 
