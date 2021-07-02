@@ -22,7 +22,6 @@ WARNING: THIS IS NOT A FAST IMPLEMENTATION OF CRC.
 
 If you want a fast implementation look elsewhere.
 
-
 """
 from checkdigit._data import cleanse
 
@@ -49,11 +48,9 @@ def calculate(data: str, polynomial: str, pad: str = "0") -> str:
     data += pad * (len(polynomial) - 1)
     bitarray = list(data)
     while len(bitarray) != len(polynomial) - 1:
-        for (bit, _) in enumerate(polynomial):
-            if polynomial[bit] == bitarray[bit]:
-                bitarray[bit] = "0"  # XOR calculation
-            else:
-                bitarray[bit] = "1"
+        for position, bit in enumerate(polynomial):
+            # XOR calculation
+            bitarray[position] = "0" if bit == bitarray[position] else "1"
         while bitarray[0] == "0" and len(bitarray) >= len(polynomial):
             bitarray.pop(0)
 

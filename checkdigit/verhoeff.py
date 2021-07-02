@@ -19,7 +19,7 @@ Developed by Jacobus Verhoeff and published in 1969.
 This particular implementation uses a table-based algorithm.
 """
 
-from checkdigit._data import TupleType, cleanse
+from checkdigit._data import TupleType, cleanse, missing_template
 
 DIHEDRAL_CAYLEY: TupleType[TupleType[int]] = (
     (0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
@@ -112,15 +112,4 @@ def missing(data: str) -> str:
         >>> verhoeff.missing("123")
         'Invalid'
     """
-    # We already have an efficient method for the check digit
-    if data[-1] == "?":
-        # Remove question mark check digit
-        return calculate(data[:-1])
-
-    # Brute force all the possible numbers (0-9 inclusive)
-    for option in (data.replace("?", str(i)) for i in range(10)):
-        # Validate the new option
-        if validate(option):
-            # Replace question mark with new value
-            return option[data.index("?")]
-    return "Invalid"
+    return missing_template(data, "verhoeff")

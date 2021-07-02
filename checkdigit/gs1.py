@@ -13,9 +13,11 @@
 # You should have received a copy of the GNU General Public License
 # along with checkdigit.  If not, see <http://www.gnu.org/licenses/>.
 
-"""GS1 Standards.
+"""Global Standards One.
 
-This includes support for the following:
+GS1 provides a variety of different standards
+
+This implementation includes support for the following:
 
 - GSIN
 - GLN
@@ -31,7 +33,7 @@ This includes support for the following:
 
 import math
 
-from checkdigit._data import cleanse, convert
+from checkdigit._data import cleanse, convert, missing_template
 
 
 def calculate(data: str) -> str:
@@ -113,11 +115,4 @@ def missing(data: str) -> str:
         'Invalid'
 
     """
-    data = cleanse(data)
-    for poss_digit in range(10):  # Brute Force the 10 options
-        option = convert(poss_digit)
-        # tests it with the generated number
-        # If this fails, the next number is tried
-        if validate(data.replace("?", option)):
-            return option
-    return "Invalid"
+    return missing_template(data, "gs1")

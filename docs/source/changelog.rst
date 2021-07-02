@@ -9,6 +9,11 @@ WIP
 
 - Added support for the Verhoeff algorithm.
 
+🎭 Behind the Scenes
+---------------------
+
+- The :code:`missing` method has been refactored into one central location to massively reduce code duplication.
+
 0.3.0 (2021-06-21)
 ===================
 

@@ -20,7 +20,7 @@ Support is provided for both ISBN-10 and ISBN-13.
 
 """
 
-from checkdigit._data import cleanse, convert
+from checkdigit._data import cleanse, convert, missing_template
 
 
 def calculate(data: str) -> str:
@@ -107,16 +107,4 @@ def missing(data: str) -> str:
         >>> isbn.missing("023456789128")
         'Invalid'
     """
-    # We already have an efficient method for the check digit
-    if data[-1] == "?":
-        # Remove question mark check digit
-        return calculate(data[:-1])
-
-    # We've dealt with the check digit, so X can't be an option
-    # Brute force all the possible numbers (0-9 inclusive)
-    for option in (data.replace("?", str(i)) for i in range(10)):
-        # Validate the new option
-        if validate(option):
-            # Replace question mark with new value
-            return option[data.index("?")]
-    return "Invalid"
+    return missing_template(data, "isbn")

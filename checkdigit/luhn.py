@@ -20,7 +20,7 @@ The luhn algorithm has a variety of applications, including in credit cards and 
 
 """
 
-from checkdigit._data import cleanse
+from checkdigit._data import cleanse, missing_template
 
 
 def calculate(data: str) -> str:
@@ -102,8 +102,4 @@ def missing(data: str) -> str:
         'Invalid'
 
     """
-    data = cleanse(data)
-    for poss_digit in range(10):  # Brute Force the 10 options
-        if validate(data.replace("?", str(poss_digit))):
-            return str(poss_digit)
-    return "Invalid"
+    return missing_template(data, "luhn")
