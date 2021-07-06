@@ -42,8 +42,11 @@ First, fork the `GitHub project <https://github.com/harens/checkdigit>`_ to your
 .. code-block:: console
 
     git clone https://github.com/INSERT_GITHUB_NAME/checkdigit
+    cd checkdigit
     poetry install && poetry shell
     pre-commit install
+
+Before submitting any new changes, please run :code:`make` beforehand. This formats the code and runs the tests. Thank you :)
 
 🏛 Project structure
 ---------------------
@@ -65,8 +68,6 @@ First, fork the `GitHub project <https://github.com/harens/checkdigit>`_ to your
     └── tests
 
 Each new format should go into a separate file which is named accordingly.
-
-Before submitting any new changes, please run the :code:`format.sh` and :code:`tests.sh` scripts beforehand. Thank you :)
 
 📚 Building the Docs
 ---------------------
