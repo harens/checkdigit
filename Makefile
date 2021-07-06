@@ -1,30 +1,26 @@
-all: lint test
+all: format test
 
-lint: ## Runs black and isort
-	poetry run $(MAKE) lint-poetry
+CMD:=poetry run python -m
 
-lint-poetry:
-	python -m isort .
-	python -m black .
+format: ## Runs black and isort
+	$(CMD) isort .
+	$(CMD) black .
 
-test: pytest type-checking formatting dependencies  ## Runs all available tests (pytest, type checking, etc.)
+test: pytest type-checking lint dependencies  ## Runs all available tests (pytest, type checking, etc.)
 
 # TODO: LOCATION = checkdigit/ tests/
 pytest:  ## Runs pytest on docstrings and the tests folder and outputs coverage.xml
-	poetry run python -m pytest --cov-report=xml:coverage.xml --cov=checkdigit --doctest-modules checkdigit/ tests/
+	$(CMD) pytest --cov-report=xml:coverage.xml --cov=checkdigit --doctest-modules checkdigit/ tests/
 
 type-checking:  ## Runs mypy --strict
-	poetry run python -m mypy --strict .
+	$(CMD) mypy --strict .
 
 dependencies:  ## Verifies pyproject.toml file integrity
 	poetry check
-	poetry run python -m pip check
+	$(CMD) pip check
 
-formatting:  ## Tests whether formatting meets standards
-	poetry run $(MAKE) formatting-poetry
-
-formatting-poetry:
-	python -m black --check .
-	python -m isort --check-only .
-	python -m pylint checkdigit
-	python -m pydocstyle --convention=google
+lint:  ## Tests whether formatting meets standards
+	$(CMD) black --check .
+	$(CMD) isort --check-only .
+	$(CMD) pylint checkdigit
+	$(CMD) pydocstyle --convention=google

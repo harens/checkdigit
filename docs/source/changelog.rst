@@ -13,6 +13,7 @@ WIP
 ---------------------
 
 - The :code:`missing` method has been refactored into one central location to massively reduce code duplication.
+- The numerous shell scripts for formatting/testing were replaced with a single Makefile.
 
 0.3.0 (2021-06-21)
 ===================

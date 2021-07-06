@@ -14,14 +14,14 @@ jobs:
     strategy:
       matrix:
         python-version: [3.6, 3.7, 3.8, 3.9]
-        test-section: [dependencies, formatting, pytest, type-checking]
+        test-section: [dependencies, format, pytest, type-checking]
         exclude:  # See https://github.community/t/improve-matrix-exclusion-feature/16340
           - {test-section: dependencies, python-version: 3.6}
           - {test-section: dependencies, python-version: 3.7}
           - {test-section: dependencies, python-version: 3.8}
-          - {test-section: formatting, python-version: 3.6}
-          - {test-section: formatting, python-version: 3.7}
-          - {test-section: formatting, python-version: 3.8}
+          - {test-section: format, python-version: 3.6}
+          - {test-section: format, python-version: 3.7}
+          - {test-section: format, python-version: 3.8}
     steps:
       - uses: actions/checkout@v1
       - name: Set up Python ${{ matrix.python-version }}
