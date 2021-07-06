@@ -1,3 +1,4 @@
+.PHONY: docs  # The docs directory already exists
 all: format test
 
 CMD:=poetry run python -m
@@ -24,3 +25,6 @@ lint:  ## Tests whether formatting meets standards
 	$(CMD) isort --check-only .
 	$(CMD) pylint checkdigit
 	$(CMD) pydocstyle --convention=google
+
+docs:  ## Continuously build the documentation using sphinx-autobuild
+	poetry run sphinx-autobuild docs/source docs/_build/html

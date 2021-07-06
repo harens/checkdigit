@@ -78,7 +78,7 @@ We can use `sphinx-autobuild <https://github.com/executablebooks/sphinx-autobuil
 
 .. code-block:: console
 
-    sphinx-autobuild docs/source docs/_build/html
+    make docs
 
 🎪 File structure
 ------------------
@@ -91,7 +91,7 @@ Each of the Python files follow the same general format:
 
     # License + File docstring
 
-    from checkdigit._data import cleanse, convert
+    from checkdigit._data import cleanse, convert, missing_template
 
 
     def calculate(data: str) -> str:
@@ -113,6 +113,8 @@ Each of the Python files follow the same general format:
         # e.g. spaces, hyphens, etc.
         data = cleanse(data)
 
+        # Insert logic here
+
         # convert() deals with 10 or 11 being the possible check digit
         # N.B. This might not always be necessary if 10/11 aren't options (e.g. binary parity)
         return convert(...)
@@ -133,9 +135,9 @@ Each of the Python files follow the same general format:
             >>> validate(...)
             "output"
         """
-        data = cleanse(data)
 
         # Remove the check digit and see if it matches
+        # calculate() cleanses the data for us
         return calculate(data[:-1]) == data[-1]
 
 
@@ -154,6 +156,7 @@ Each of the Python files follow the same general format:
             >>> missing(...)
             "output"
         """
-        data = cleanse(data)
 
-        return ...
+        # For the majority of formats, there's a default template that should work well
+        # This just brute forces the digits from 0-9 and runs validate() on it.
+        return missing_template(data, "module-name")
