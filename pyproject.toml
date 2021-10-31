@@ -39,7 +39,7 @@ Sphinx = "^4.2.0"
 sphinx-autobuild = "^2021.3.14"
 pytest = "^6.2.5"
 pytest-cov = "^2.12.1"
-readme-renderer = "^29.0"
+readme-renderer = "^30.0"
 
 [tool.coverage.run]
 branch = true
