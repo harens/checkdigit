@@ -78,8 +78,11 @@ class ModuleInterface:  # pragma: no cover
     # The data parameter isn't used, although is required to set the type.
     # pylint: disable=unused-argument
 
+    # A body of the function isn't required, since we're just mimicking the types.
+    # Hence get mypy to ignore the warning
+
     @staticmethod
-    def validate(data: str) -> bool:
+    def validate(data: str) -> bool:  # type: ignore[empty-body]
         """Validates check digits in a full block of data.
 
         Args:
@@ -88,10 +91,9 @@ class ModuleInterface:  # pragma: no cover
         Returns:
             bool: A boolean representing whether the data is valid or not.
         """
-        ...
 
     @staticmethod
-    def calculate(data: str) -> str:
+    def calculate(data: str) -> str:  # type: ignore[empty-body]
         """Calculates check digits for a block of data.
 
         Args:
@@ -100,11 +102,10 @@ class ModuleInterface:  # pragma: no cover
         Returns:
             str: The missing check digit
         """
-        ...
 
 
 def import_module_with_interface(module: str) -> ModuleInterface:
-    """Imports the module,, and sets its type to ModuleInterface to play nice with mypy.
+    """Imports the module, and sets its type to ModuleInterface to play nice with mypy.
 
     Args:
         module: The checkdigit module to import
