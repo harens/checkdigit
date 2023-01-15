@@ -26,7 +26,7 @@ documentation = "https://checkdigit.rtfd.io"
 python = ">=3.7,<4.0"
 
 [tool.poetry.dev-dependencies]
-pylint = "2.13.0"
+pylint = "2.13.9"
 mypy = "^0.991"
 black = "^23.1a1"
 isort = "^5.11.4"
