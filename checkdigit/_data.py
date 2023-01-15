@@ -139,7 +139,6 @@ def missing_template(data: str, module: str) -> str:
     """
     # Imports the relevant module for the data type
     data_type = import_module_with_interface(module)
-    # data_type = __import__(f"checkdigit.{module}", fromlist=["validate, calculate"])
 
     # We already have an efficient method for the check digit
     if data[-1] == "?":
