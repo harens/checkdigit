@@ -71,6 +71,7 @@ else:  # pragma: no cover
 # ------------------------------------------------------------------------
 # Inspired by https://stackoverflow.com/a/48981829
 
+
 # Pytest coverage not applicable since these are just types.
 class ModuleInterface:  # pragma: no cover
     """Sets the types of the various functions that are imported by missing_template."""
