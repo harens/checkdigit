@@ -60,9 +60,11 @@ Installation
 ✨ Features
 ------------
 
-* `PEP 561 compatible <https://www.python.org/dev/peps/pep-0561>`_, with built in support for type checking.
-* Capable of calculating missing digits or validating a block of data.
-* Extensive in-code comments and docstrings to explain how it works behind the scenes. 🪄
+* 📦 Works out of the box with all `supported Python versions <https://endoflife.date/python>`_ (3.7-3.11).
+* ⌨️ `PEP 561 compatible <https://www.python.org/dev/peps/pep-0561>`_, with built in support for type checking.
+* 🏃 Zero runtime dependencies. What you see is what you get.
+* 🧮 Capable of calculating missing digits or validating a block of data.
+* 📝 Extensive in-code comments and docstrings to explain how it works behind the scenes.
 
 ✅ Supported Formats
 ---------------------

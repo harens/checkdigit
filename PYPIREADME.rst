@@ -5,7 +5,7 @@
 
 |
 
-.. image:: https://img.shields.io/github/workflow/status/harens/checkdigit/Tests?logo=github&style=flat-square
+.. image:: https://img.shields.io/github/actions/workflow/status/harens/checkdigit/test.yml?logo=github&style=flat-square
    :alt: GitHub Tests status
    :target: https://github.com/harens/checkdigit/actions
 
@@ -20,10 +20,6 @@
 .. image:: https://img.shields.io/codefactor/grade/github/harens/checkdigit?logo=codefactor&style=flat-square
    :alt: CodeFactor Grade
    :target: https://www.codefactor.io/repository/github/harens/checkdigit/
-
-.. image:: https://img.shields.io/lgtm/grade/python/github/harens/checkdigit?logo=lgtm&style=flat-square
-   :alt: LGTM Grade
-   :target: https://lgtm.com/projects/g/harens/checkdigit/
 
 =========
 
@@ -58,9 +54,11 @@ Installation
 ✨ Features
 ------------
 
-* `PEP 561 compatible <https://www.python.org/dev/peps/pep-0561>`_, with built in support for type checking.
-* Capable of calculating missing digits or validating a block of data.
-* Extensive in-code comments and docstrings to explain how it works behind the scenes. 🪄
+* 📦 Works out of the box with all `supported Python versions <https://endoflife.date/python>`_ (3.7-3.11).
+* ⌨️ `PEP 561 compatible <https://www.python.org/dev/peps/pep-0561>`_, with built in support for type checking.
+* 🏃 Zero runtime dependencies. What you see is what you get.
+* 🧮 Capable of calculating missing digits or validating a block of data.
+* 📝 Extensive in-code comments and docstrings to explain how it works behind the scenes.
 
 ✅ Supported Formats
 ---------------------
