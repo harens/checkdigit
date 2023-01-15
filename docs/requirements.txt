@@ -1,6 +1,6 @@
-Sphinx==3.5.3
+Sphinx==5.3.0
 
 # Install development version of checkdigit
 # See https://stackoverflow.com/a/35998253 and https://github.com/readthedocs/readthedocs.org/issues/7156#issuecomment-638790698
 # TODO: Change this to install the local version of GitHub to allow PRs changing docs to work.
-git+git://github.com/harens/checkdigit@master#egg=checkdigit
+git+https://github.com/harens/checkdigit@master#egg=checkdigit
