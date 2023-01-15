@@ -1,6 +1,19 @@
 Changelog
 **********
 
+Latest
+=======
+
+🔨 Compatibility Broken
+-------------------------
+
+- Dropped support for Python 3.6
+
+⚡️ Features
+------------
+
+- Added support for Python 3.10 and 3.11
+
 0.3.1 (2021-07-27)
 ===================
 
