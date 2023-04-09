@@ -71,8 +71,7 @@ Installation
 
 * `Even/Odd binary parity <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.parity.html#module-checkdigit.parity>`_
 * `CRC <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.crc.html#module-checkdigit.crc>`_
-  (credit to `@sapieninja <https://github.com/sapieninja>`_)
-* `GS1 Standards <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.gs1.html#module-checkdigit.gs1>`_ (credit to `@OtherBarry <https://github.com/OtherBarry>`_)
+* `GS1 Standards <https://checkdigit.readthedocs.io/en/latest/_autosummary/checkdigit.gs1.html#module-checkdigit.gs1>`_
     * EAN-8/13
     * GDTI
     * GLN
@@ -88,18 +87,33 @@ For each of these formats, we provide functions to validate them and calculate m
 Do you have any formats that you'd like to see supported? 🤔 Feel free to raise an issue,
 or even to send a pull request!
 
-🔨 Contributing
----------------
+✨ Contributors
+----------------
 
-- Contributing Page: `<https://checkdigit.rtfd.io/en/latest/contributing.html>`_
-- Issue Tracker: `<https://github.com/harens/checkdigit/issues>`_
-- Source Code: `<https://github.com/harens/checkdigit>`_
+This project follows the `all-contributors <https://github.com/all-contributors/all-contributors>`_ specification. Contributions of any kind are welcome!
 
-Any change, big or small, that you think can help improve this project is more than welcome 🎉.
+Want to help out? Check out the `contributing page <https://checkdigit.rtfd.io/en/latest/contributing.html>`_.
 
-As well as this, feel free to open an issue with any new suggestions or bug reports. Every contribution is appreciated.
+Thanks goes to these wonderful people (`emoji key <https://allcontributors.org/docs/en/emoji-key>`_):
 
-To find out more, please read our `contributing page <https://checkdigit.readthedocs.io/en/latest/contributing.html>`_. Thank you!
+.. raw:: html
+
+    <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+    <!-- prettier-ignore-start -->
+    <!-- markdownlint-disable -->
+    <table>
+      <tr>
+        <td align="center"><a href="https://zeevox.net"><img src="https://avatars.githubusercontent.com/u/8385172?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Timothy Langer</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=ZeevoX" title="Tests">⚠️</a> <a href="https://github.com/harens/checkdigit/commits?author=ZeevoX" title="Documentation">📖</a></td>
+        <td align="center"><a href="https://github.com/OtherBarry"><img src="https://avatars.githubusercontent.com/u/6956537?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Charlie Wilson</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=OtherBarry" title="Code">💻</a> <a href="https://github.com/harens/checkdigit/commits?author=OtherBarry" title="Tests">⚠️</a></td>
+        <td align="center"><a href="https://github.com/sapieninja"><img src="https://avatars.githubusercontent.com/u/60101890?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Max Bowman</b></sub></a><br /><a href="https://github.com/harens/checkdigit/commits?author=sapieninja" title="Code">💻</a> <a href="https://github.com/harens/checkdigit/commits?author=sapieninja" title="Tests">⚠️</a></td>
+        <td align="center"><a href="http://mohsen.1.banan.byname.net/contact"><img src="https://avatars.githubusercontent.com/u/39976397?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mohsen BANAN</b></sub></a><br /><a href="https://github.com/harens/checkdigit/issues?q=author%3AmohsenBanan" title="Bug reports">🐛</a></td>
+      </tr>
+    </table>
+
+    <!-- markdownlint-restore -->
+    <!-- prettier-ignore-end -->
+
+    <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 📙 License
 -----------

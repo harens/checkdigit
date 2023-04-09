@@ -1,6 +1,7 @@
 {
   "files": [
-    "docs/source/contributing.rst"
+    "docs/source/contributing.rst",
+    "README.rst"
   ],
   "contributors": [
     {
