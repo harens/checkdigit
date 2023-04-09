@@ -66,4 +66,9 @@ class TestISBN13:
         assert isbn.missing("0?23456789128") == "1"
         assert isbn.missing("978-074?595823") == "7"
         assert isbn.missing("978-074759582?") == "3"
+        assert isbn.missing("978-?-960957-030") == "1"
         assert isbn.missing("023456789128") == "Invalid"
+
+    def test_XNotValid(self) -> None:
+        """Only ISBN-10 can return an X."""
+        assert isbn.calculate("978-1-960957-03") == "0"

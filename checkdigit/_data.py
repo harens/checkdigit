@@ -33,15 +33,15 @@ def cleanse(data: str) -> str:
     return data.replace("-", "").replace(" ", "")
 
 
-def convert(digit: int, isbn: bool = True) -> str:
+def convert(digit: int, isbn10: bool = True) -> str:
     """Converts digits to strings and replaces 10 and 11.
 
     Args:
         digit: The code to be modified.
-        isbn: Whether the code is ISBN or not.
+        isbn10: Whether the code is ISBN-10 or not.
     """
     if digit == 10:
-        return "X" if isbn else "0"
+        return "X" if isbn10 else "0"
     return "0" if digit == 11 else str(digit)
 
 

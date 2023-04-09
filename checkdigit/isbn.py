@@ -58,7 +58,7 @@ def calculate(data: str) -> str:
         # Multiply each digit by its weight
         total_sum = sum(int(digit) * weight for digit, weight in zip(data, weights))
         # Return final check digit and type of barcode
-        return convert(10 - (total_sum % 10))
+        return convert(10 - (total_sum % 10), False)
     return "Invalid"
 
 
