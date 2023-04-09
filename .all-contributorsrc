@@ -32,6 +32,15 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "mohsenBanan",
+      "name": "Mohsen BANAN",
+      "avatar_url": "https://avatars.githubusercontent.com/u/39976397?v=4",
+      "profile": "http://mohsen.1.banan.byname.net/contact",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "projectName": "checkdigit",
@@ -39,5 +48,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "commitConvention": "angular"
 }
