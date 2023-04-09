@@ -1,6 +1,14 @@
 Changelog
 **********
 
+0.5.0 (2023-04-09)
+===================
+
+🐛 Bugfixes
+------------
+
+- Fixed a bug where ISBN-13 calculations allowed for a check digit of X, which shouldn't be possible. (`#171 <https://github.com/harens/checkdigit/issues/171>`_)
+
 0.4.0 (2023-01-15)
 ===================
 
