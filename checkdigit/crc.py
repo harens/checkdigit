@@ -100,7 +100,7 @@ def missing(data: str, polynomial: str) -> str:
         >>> crc.missing("?1111111001", "1101")
         'Invalid'
     """
-    solutions = []
+    final_solution = "Invalid"
     number = data.count("?")
     if number == 0:
         return "Invalid"  # if there are no ? to replace the algorithm will not work
@@ -113,9 +113,9 @@ def missing(data: str, polynomial: str) -> str:
         for bit in replacement:
             tocheck = tocheck.replace("?", bit, 1)  # only replaces one bit at a time
         if validate(tocheck, polynomial):
-            solutions.append(replacement)
-            if len(solutions) == 2:
+            # Should only be one possible solution. If more than one found, return invalid
+            if final_solution == "Invalid":
+                final_solution = replacement
+            else:
                 return "Invalid"
-    if len(solutions) == 1:
-        return solutions[0]
-    return "Invalid"
+    return final_solution
