@@ -29,7 +29,13 @@ from typing import Any
 
 
 def cleanse(data: str) -> str:
-    """Removes Hyphens and Spaces so that data can be parsed."""
+    """Removes Hyphens and Spaces so that data can be parsed.
+
+    Examples:
+        >>> from checkdigit._data import cleanse
+        >>> cleanse("123-456 7 89")
+        '123456789'
+    """
     return data.replace("-", "").replace(" ", "")
 
 
