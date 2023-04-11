@@ -38,7 +38,7 @@ Sphinx = "5.3.0"
 sphinx-autobuild = "^2021.3.14"
 pytest = "^7.3.0"
 pytest-cov = "^4.0.0"
-pytest-sugar = "^0.9.6"
+pytest-sugar = "^0.9.7"
 
 [tool.coverage.run]
 branch = true
