@@ -19,7 +19,7 @@ from checkdigit import isbn
 class TestISBN10:
     def test_calculate(self) -> None:
         """ISBN-10 Check digit."""
-        assert isbn.calculate("006196436") == "0"
+        assert isbn.calculate("0061-96436") == "0"
         assert isbn.calculate("190592105") == "5"
         assert isbn.calculate("043942089") == "X"
         assert isbn.calculate("02345678912") == "Invalid"
@@ -27,7 +27,7 @@ class TestISBN10:
     def test_validate(self) -> None:
         """Validate ISBN-10."""
         assert isbn.validate("0205080057")
-        assert isbn.validate("0198526636")
+        assert isbn.validate("01985 26636")
         assert isbn.validate("1-56619-909-3")
         assert not isbn.validate("01-9323852")
         assert not isbn.validate("423423")
