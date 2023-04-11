@@ -18,23 +18,25 @@ def test_calculate() -> None:
     """CRC generating correct check parts."""
     assert crc.calculate("1010", "1011") == "011"
     assert crc.calculate("010101", "1101") == "111"
-    assert crc.calculate("1111011011", "1101001") == "010100"
+    assert crc.calculate("1111011-011", "1101001") == "010100"
     assert crc.calculate("100100011101", "111") == "11"
-    assert crc.calculate("100110010100111101111101", "11010111101") == "0010001100"
+    assert crc.calculate("10011001 0100111101111101", "11010111101") == "0010001100"
 
 
 def test_validate() -> None:
     """Validate CRC data."""
-    assert crc.validate("1010101", "101")
-    assert crc.validate("1001100101001111011111010010001100", "11010111101")
+    assert crc.validate("10 10101", "101")
+    assert crc.validate("10011001010 01111011111010010001100", "11010111101")
     assert not crc.validate("1000101", "101")
-    assert not crc.validate("1001100101001111011111010010001110", "11010111101")
+    assert not crc.validate("10011001010011110111-11010010001110", "11010111101")
 
 
 def test_missing() -> None:
     """Determines missing values from CRC data."""
-    assert crc.missing("10?110010100111?0?1111?10010?011?0", "11010111101") == "011000"
-    assert crc.missing("?1111111101", "1101") == "1"
+    assert (
+        crc.missing("10?1100-10100111?0?1 111?10010?011?0", "11010111101") == "011000"
+    )
+    assert crc.missing("?1111 111101", "1101") == "1"
     assert crc.missing("101101001", "11101") == "Invalid"
     assert crc.missing("?????????", "111") == "Invalid"
     assert crc.missing("?1111111001", "1101") == "Invalid"
