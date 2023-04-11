@@ -44,6 +44,11 @@ class TestISBN10:
         assert isbn.missing("0393020?31") == "2"
         assert isbn.missing("01367440?5") == "9"
 
+        # Checks mutation case where brute force replacing ? accidentally includes 10
+        # 0131-10-3628 is a valid code, but the case should return invalid
+        # Since the ? only marks one digit.
+        assert isbn.missing("0131?3628") == "Invalid"
+
 
 class TestISBN13:
     def test_calculate(self) -> None:
