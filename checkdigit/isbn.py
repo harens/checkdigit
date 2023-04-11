@@ -45,9 +45,10 @@ def calculate(data: str) -> str:
 
     if len(data) == 9:
         # ISBN 10 (without the check digit)
-        # Multiply first digit by 10, second by 9, ... and take the sum
+        # Multiply first digit by 10, second by 9, ... ninth by 2 and take the sum
+        # Sanity check: len(range(...)) should be the same as len(data)
         total_sum = sum(
-            int(digit) * weight for digit, weight in zip(data, range(10, 0, -1))
+            int(digit) * weight for digit, weight in zip(data, range(10, 1, -1))
         )
         return convert(11 - (total_sum % 11))
     # elif not required since return above (and makes pylint happy)
