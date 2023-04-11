@@ -106,7 +106,7 @@ def missing(data: str, even: bool = True) -> str:
         '1'
     """
     # Same principle as check digit (just not necessarily on the end)
-    newData = data.replace("?", "")
-    if len(newData) != len(data) - 1:
+    new_data = data.replace("?", "")
+    if len(new_data) != len(data) - 1:
         return "Invalid"  # Same invalid result as general _data missing method
-    return calculate(newData, even)
+    return calculate(new_data, even)
