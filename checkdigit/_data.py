@@ -60,7 +60,7 @@ PYTHON_AT_LEAST_3_9 = sys.version_info >= (3, 9)
 
 # Use typing module below python 3.9
 # Initialised first with Any to make mypy happy
-TupleType: Any = None
+TupleType: Any
 
 # Don't count code coverage since different python versions
 # won't run different parts of code
