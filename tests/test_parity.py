@@ -41,6 +41,13 @@ class TestValidate:
         assert parity.validate("01101", False)
         assert not parity.validate("01100", False)
 
+    def test_correctSlicing(self) -> None:
+        """Mutation-based tests to check that correct slicing is performed."""
+
+        # Checks that data[:-1] rather than data[:1] or [:-2] in
+        # calculate(data[:-1], even) == data[-1]
+        assert parity.validate("110")
+
 
 class TestMissing:
     def test_even(self) -> None:
@@ -54,3 +61,6 @@ class TestMissing:
         assert parity.missing("01101?", False) == "0"
         assert parity.missing("01?010", False) == "1"
         assert parity.missing("010010?011", False) == "1"
+
+    def test_invalidResult(self) -> None:
+        assert parity.missing("0101??") == "Invalid"
