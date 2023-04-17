@@ -16,7 +16,7 @@
 """An easy-to-use check digit library for data validation.
 
 This Python library contains various functions relating to Luhn, ISBN, UPC and many other codes.
-It is able to validate blocks of data, as well as calulate missing digits and check digits.
+It is able to validate blocks of data, as well as calculate missing digits and check digits.
 
 For more information, please look at the wiki page for this library:
 https://checkdigit.rtfd.io/
