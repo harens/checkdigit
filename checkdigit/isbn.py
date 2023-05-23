@@ -53,11 +53,9 @@ def calculate(data: str) -> str:
         return convert(11 - (total_sum % 11))
     # elif not required since return above (and makes pylint happy)
     if len(data) == 12:
-        # ISBN weights is 1 for odd positions and 3 for even
-        # Since there are 12 digits, multiply weights by 6
-        weights = (1, 3) * 6
+        # ISBN weights are 3 for even positions and 1 for odd
         # Multiply each digit by its weight
-        total_sum = sum(int(digit) * weight for digit, weight in zip(data, weights))
+        total_sum = sum((int(data[i])) * (3 if i % 2 else 1) for i in range(len(data)))
         # Return final check digit and type of barcode
         return convert(10 - (total_sum % 10), False)
     return "Invalid"
